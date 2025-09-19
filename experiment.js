@@ -51,8 +51,7 @@ const consentForm = {
 
           <p>The purpose of this research is to examine which factors influence social judgment and decision-making.
           You will be asked to make judgments about individuals and actions in social scenarios. We are simply interested
-          in your judgment. The study will take less than 15 minutes to complete, and you will receive 
-          <strong>$2.30 through Prolific</strong>. There are no anticipated risks associated with participating in this study.
+          in your judgment. The study will take less than 15 minutes to complete, and you will receive $2.30 through Prolific. There are no anticipated risks associated with participating in this study.
           The effects of participating should be comparable to those you would ordinarily experience from viewing a computer 
           monitor and using a mouse or keyboard for a similar amount of time. At the end of the study, we will provide an 
           explanation of the questions that motivate this line of research and will describe the potential implications.</p>
