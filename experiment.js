@@ -1,3 +1,34 @@
+// Add custom CSS for sliders updated at Sep 26
+const style = document.createElement("style");
+style.innerHTML = `
+/* WebKit browsers (Chrome, Safari, Edge) */
+input[type="range"]::-webkit-slider-runnable-track {
+  background: #ddd;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: #000;
+  cursor: pointer;
+}
+/* Firefox */
+input[type="range"]::-moz-range-track {
+  background: #ddd;
+}
+input[type="range"]::-moz-range-progress {
+  background: #ddd; /* removes the colored bar */
+}
+input[type="range"]::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  background: #000;
+  cursor: pointer;
+}
+`;
+document.head.appendChild(style);
+
 // Define global variables
 let timeline = [];
 
@@ -51,7 +82,8 @@ const consentForm = {
 
           <p>The purpose of this research is to examine which factors influence social judgment and decision-making.
           You will be asked to make judgments about individuals and actions in social scenarios. We are simply interested
-          in your judgment. The study will take less than 15 minutes to complete, and you will receive $2.30 through Prolific. There are no anticipated risks associated with participating in this study.
+          in your judgment. The study will take less than 15 minutes to complete, and you will receive 
+          <strong>$2.30 through Prolific</strong>. There are no anticipated risks associated with participating in this study.
           The effects of participating should be comparable to those you would ordinarily experience from viewing a computer 
           monitor and using a mouse or keyboard for a similar amount of time. At the end of the study, we will provide an 
           explanation of the questions that motivate this line of research and will describe the potential implications.</p>
@@ -570,15 +602,14 @@ const genderOrder = jsPsych.randomization.shuffle(
   Array(half).fill("female_agent").concat(Array(chosenGroup.length-half).fill("male_agent"))
 );
 
-// labels at the top
 const topScale = `
-  <div style="position:relative;width:100%;margin:12px 0 20px 0;">
+  <div style="position:relative;width:100%;margin:8px 0 15px 0;">
     <input type="range" disabled style="width:100%;visibility:hidden;">
-    <span style="position:absolute;left:0;top:-1.2em;font-size:13px;">Least</span>
-    <span style="position:absolute;right:0;top:-1.2em;font-size:13px;">Most</span>
+    <span style="position:absolute;left:0;top:-1.2em;font-size:12px;">Least</span>
+    <span style="position:absolute;right:0;top:-1.2em;font-size:12px;">Most</span>
     ${Array.from({length:11},(_,i)=>i*10).map(v=>{
       const pos = v;
-      return `<span style="position:absolute;left:${pos}%;top:1.2em;transform:translateX(-50%);font-size:11px;">${v}</span>`;
+      return `<span style="position:absolute;left:${pos}%;top:1.2em;transform:translateX(-50%);font-size:10px;">${v}</span>`;
     }).join("")}
   </div>
 `;
@@ -591,34 +622,41 @@ chosenGroup.forEach((scenario,sIdx)=>{
   const agentName = genderKey==="female_agent" ? scenario.female_name : scenario.male_name;
 
   const cells=[];
- 
-  cells.push(`<div style="grid-column:1/2;"></div><div style="grid-column:2/3;">${topScale}</div>`);
 
   for(let i=1;i<=5;i++){
-    cells.push(`
-      <div style="grid-column:1/2;">
-        <label><strong>Action ${i}</strong></label>
-        <textarea name="action_${scenario.id}_${i}" rows="2" style="width:100%;" required></textarea>
+  cells.push(`
+    <div style="margin-bottom:25px;">
+      <label><strong>Action ${i}</strong></label><br>
+      <textarea name="action_${scenario.id}_${i}" rows="2" 
+        style="width:100%; max-width:600px; display:block; margin: 0 auto 10px auto;" required></textarea>
+      
+      <div style="max-width:600px; margin: 0 auto;">
+        ${topScale}
       </div>
-      <div style="grid-column:2/3;display:flex;flex-direction:column;gap:12px;">
-        <div>
-          <div><em>How probable is it that <strong>${agentName}</strong> will do that thing?</em></div>
-          <input type="range" name="prob_${scenario.id}_${i}" min="0" max="100" step="1" value="50" style="width:100%;">
-        </div>
-        <div>
-          <div><em>How morally acceptable would it be for <strong>${agentName}</strong> to do that thing?</em></div>
-          <input type="range" name="moral_${scenario.id}_${i}" min="0" max="100" step="1" value="50" style="width:100%;">
-        </div>
-        <div>
-          <div><em>How normal would it be if <strong>${agentName}</strong> did that thing?</em></div>
-          <input type="range" name="norm_${scenario.id}_${i}" min="0" max="100" step="1" value="50" style="width:100%;">
-        </div>
-      </div>
-    `);
-  }
 
-  const grid = `
-    <div style="display:grid;grid-template-columns:45% 55%;column-gap:20px;row-gap:16px;align-items:start;">
+      <div style="margin-bottom:12px; max-width:600px; margin: 0 auto;">
+        <em>How probable is it that <strong>${agentName}</strong> will do that thing?</em><br>
+        <input type="range" name="prob_${scenario.id}_${i}" min="0" max="100" step="1" value="50" 
+          style="width:100%;">
+      </div>
+
+      <div style="margin-bottom:12px; max-width:600px; margin: 0 auto;">
+        <em>How morally acceptable would it be for <strong>${agentName}</strong> to do that thing?</em><br>
+        <input type="range" name="moral_${scenario.id}_${i}" min="0" max="100" step="1" value="50" 
+          style="width:100%;">
+      </div>
+
+      <div style="margin-bottom:12px; max-width:600px; margin: 0 auto;">
+        <em>How normal would it be if <strong>${agentName}</strong> did that thing?</em><br>
+        <input type="range" name="norm_${scenario.id}_${i}" min="0" max="100" step="1" value="50" 
+          style="width:100%;">
+      </div>
+    </div>
+  `);
+}
+
+  const block = `
+    <div style="display:flex;flex-direction:column;gap:20px;">
       ${cells.join("")}
     </div>
   `;
@@ -628,10 +666,10 @@ chosenGroup.forEach((scenario,sIdx)=>{
     preamble: `
       <div style="text-align:left;">
         <p>${scenarioText}</p>
-        <p><strong>In this situation, what are some things you believe ${agentName} could do? Please list 5 actions.</strong></p>
+        <p><strong>In this situation, what are some things you believe ${agentName} could do? Please list 5 actions and then answer the following questions.</strong></p>
       </div>
     `,
-    html: grid,
+    html: block,
     button_label: "Continue",
     data:{scenario_id:scenario.id,gender:genderKey,agent:agentName}
   });
@@ -736,50 +774,6 @@ const demographicsQuestions = {
           <div class="jspsych-survey-multi-choice-option">
             <input type="radio" id="gender-prefer-not" name="gender" value="Prefer not to disclose" class="demographics-gender incomplete" onclick="this.classList.remove('incomplete');">
             <label for="gender-prefer-not">Prefer not to disclose</label>
-          </div>
-        </div>
-
-        <!-- Education -->
-        <div class="jspsych-survey-multi-choice-question">
-          <legend>
-            What is the highest level of education you have received? 
-            (If you are currently enrolled in school, please indicate the highest degree you have received)
-          </legend>
-          <div class="jspsych-survey-multi-choice-option">
-            <input type="radio" id="education-less-high-school" name="education" value="Less than a high school diploma" class="demographics-education incomplete" onclick="this.classList.remove('incomplete');">
-            <label for="education-less-high-school">
-              Less than a high school diploma
-            </label>
-          </div>
-          <div class="jspsych-survey-multi-choice-option">
-            <input type="radio" id="education-high-school" name="education" value="High school degree or equivalent (e.g. GED)" class="demographics-education incomplete" onclick="this.classList.remove('incomplete');">
-            <label for="education-high-school">
-              High school degree or equivalent (e.g. GED)
-            </label>
-          </div>
-          <div class="jspsych-survey-multi-choice-option">
-            <input type="radio" id="education-some-college" name="education" value="Some college, no degree" class="demographics-education incomplete" onclick="this.classList.remove('incomplete');">
-            <label for="education-some-college">
-              Some college, no degree
-            </label>
-          </div>
-          <div class="jspsych-survey-multi-choice-option">
-            <input type="radio" id="education-associate" name="education" value="Associate Degree (e.g. AA, AS)" class="demographics-education incomplete" onclick="this.classList.remove('incomplete');">
-            <label for="education-associate">
-              Associate Degree (e.g. AA, AS)
-            </label>
-          </div>
-          <div class="jspsych-survey-multi-choice-option">
-            <input type="radio" id="education-bachelors" name="education" value="Bachelor's Degree (e.g. BA, BS)" class="demographics-education incomplete" onclick="this.classList.remove('incomplete');">
-            <label for="education-bachelors">
-              Bachelor's Degree (e.g. BA, BS)
-            </label>
-          </div>
-          <div class="jspsych-survey-multi-choice-option">
-            <input type="radio" id="education-postgraduate" name="education" value="Postgraduate Degree (e.g. Master's Degree, Professional Degree, Doctorate Degree)" class="demographics-education incomplete" onclick="this.classList.remove('incomplete');">
-            <label for="education-postgraduate">
-              Postgraduate Degree (e.g. Master's Degree, Professional Degree, Doctorate Degree)
-            </label>
           </div>
         </div>
         
