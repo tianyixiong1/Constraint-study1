@@ -129,7 +129,23 @@ const consentForm = {
   }
 };
 
+// Instruction updated at Sep 26
+const instruction = {
+  type: jsPsychHtmlButtonResponse,
+  stimulus: `
+    <div style="max-width:800px; margin:auto; text-align:left;">
+      <h2 style="text-align:center">Welcome to our study!</h2>
+      <p>In this experiment, we are interested in learning about the kinds of actions that you think someone else could do.</p>
+      <p>You will read scenarios and be asked to provide possible actions that the person in the scenario could do. You will also be asked to rate the actions you come up with on how probable, how moral, and how normal the actions are.</p>
+    </div>
+  `,
+  choices: ['Continue']
+};
+
+
 timeline.push(consentForm);
+timeline.push(instruction);
+
 const politicalResponses = [
   "1 (Extremely liberal)",
   "2",
@@ -605,8 +621,8 @@ const genderOrder = jsPsych.randomization.shuffle(
 const topScale = `
   <div style="position:relative;width:100%;margin:8px 0 15px 0;">
     <input type="range" disabled style="width:100%;visibility:hidden;">
-    <span style="position:absolute;left:0;top:-1.2em;font-size:12px;">Least</span>
-    <span style="position:absolute;right:0;top:-1.2em;font-size:12px;">Most</span>
+    <span style="position:absolute;left:0;top:-1.2em;font-size:14px;margin-left:-8px;">Least</span>
+    <span style="position:absolute;right:0;top:-1.2em;font-size:14px;margin-right:-8px;">Most</span>
     ${Array.from({length:11},(_,i)=>i*10).map(v=>{
       const pos = v;
       return `<span style="position:absolute;left:${pos}%;top:1.2em;transform:translateX(-50%);font-size:10px;">${v}</span>`;
@@ -623,30 +639,32 @@ chosenGroup.forEach((scenario,sIdx)=>{
 
   const cells=[];
 
+// Add spacing -- updated at Sep 26
   for(let i=1;i<=5;i++){
   cells.push(`
-    <div style="margin-bottom:25px;">
+    <div style="margin-bottom:40px;">
       <label><strong>Action ${i}</strong></label><br>
       <textarea name="action_${scenario.id}_${i}" rows="2" 
-        style="width:100%; max-width:600px; display:block; margin: 0 auto 10px auto;" required></textarea>
-      
-      <div style="max-width:600px; margin: 0 auto;">
+        style="width:100%; max-width:600px; display:block; margin: 0 auto 35px auto;" required></textarea>
+        <!-- margin-bottom increased to 35px -->
+
+      <div style="max-width:600px; margin: 0 auto 15px auto;">
         ${topScale}
       </div>
 
-      <div style="margin-bottom:12px; max-width:600px; margin: 0 auto;">
+      <div style="margin-bottom:15px; max-width:600px; margin: 0 auto;">
         <em>How probable is it that <strong>${agentName}</strong> will do that thing?</em><br>
         <input type="range" name="prob_${scenario.id}_${i}" min="0" max="100" step="1" value="50" 
           style="width:100%;">
       </div>
 
-      <div style="margin-bottom:12px; max-width:600px; margin: 0 auto;">
+      <div style="margin-bottom:15px; max-width:600px; margin: 0 auto;">
         <em>How morally acceptable would it be for <strong>${agentName}</strong> to do that thing?</em><br>
         <input type="range" name="moral_${scenario.id}_${i}" min="0" max="100" step="1" value="50" 
           style="width:100%;">
       </div>
 
-      <div style="margin-bottom:12px; max-width:600px; margin: 0 auto;">
+      <div style="margin-bottom:15px; max-width:600px; margin: 0 auto;">
         <em>How normal would it be if <strong>${agentName}</strong> did that thing?</em><br>
         <input type="range" name="norm_${scenario.id}_${i}" min="0" max="100" step="1" value="50" 
           style="width:100%;">
