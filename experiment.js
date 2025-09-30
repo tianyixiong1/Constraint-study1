@@ -653,19 +653,19 @@ chosenGroup.forEach((scenario,sIdx)=>{
       </div>
 
       <div style="margin-bottom:15px; max-width:600px; margin: 0 auto;">
-        <em>How probable is it that <strong>${agentName}</strong> will do that thing?</em><br>
+        <em>How probable is it that ${agentName} will do that thing?</em><br>
         <input type="range" name="prob_${scenario.id}_${i}" min="0" max="100" step="1" value="50" 
           style="width:100%;">
       </div>
 
       <div style="margin-bottom:15px; max-width:600px; margin: 0 auto;">
-        <em>How morally acceptable would it be for <strong>${agentName}</strong> to do that thing?</em><br>
+        <em>How morally acceptable would it be for ${agentName} to do that thing?</em><br>
         <input type="range" name="moral_${scenario.id}_${i}" min="0" max="100" step="1" value="50" 
           style="width:100%;">
       </div>
 
       <div style="margin-bottom:15px; max-width:600px; margin: 0 auto;">
-        <em>How normal would it be if <strong>${agentName}</strong> did that thing?</em><br>
+        <em>How normal would it be if ${agentName} did that thing?</em><br>
         <input type="range" name="norm_${scenario.id}_${i}" min="0" max="100" step="1" value="50" 
           style="width:100%;">
       </div>
