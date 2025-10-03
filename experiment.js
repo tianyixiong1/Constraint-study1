@@ -170,7 +170,7 @@ in the study.</p>
   }
 };
 
-// Instruction updated at Sep 26
+// Instruction updated Sep 26
 const instruction = {
   type: jsPsychHtmlButtonResponse,
   stimulus: `
@@ -183,9 +183,48 @@ const instruction = {
   choices: ['Continue']
 };
 
+// Debrief form updated Oct 3
+const debriefForm = {
+  type: jsPsychHtmlButtonResponse,
+  stimulus: `
+    <div style="text-align:left; max-width:800px; margin:auto;">
+      <h2 style="text-align:center">Debrief Form</h2>
+
+      <h3>What was this study about?</h3>
+      <p>Our research lab is broadly interested in moral psychology—that is, better 
+      understanding the ways that moral judgments, moral states, and moral values, 
+      alongside other states, influence cognition and memory. Below are some of the specific 
+      questions we are currently exploring:</p>
+      <ul>
+        <li>How do moral states influence judgments, decision-making, and broader cognition?</li>
+        <li>Do moral judgments and blame affect judgments, cognition, and memory?</li>
+        <li>How does moral information influence the extent to which rules and rule-breakers should be punished?</li>
+      </ul>
+      <p>Your participation helps us answer these questions, which in turn has implications for 
+      public figures, policy, and law. We are committed to sharing our research findings in 
+      ways that are accessible and relevant to the public.</p>
+
+      <h3>How to contact us:</h3>
+      <p>Feel free to visit our website (<a href="https://www.jordancwylie.com/" target="_blank">https://www.jordancwylie.com/</a>) 
+      to learn more about our research. If you have any concerns or questions about the study you just completed, 
+      please reach out to the lab at <a href="mailto:jordan.wylie@cornell.edu">jordan.wylie@cornell.edu</a>.</p>
+
+      <p>To learn more about your rights as a research participant:</p>
+      <p>If you have any concerns about research-related ethics or harm, or would like to learn 
+      more about the ethical constraints under which this study was conducted, please 
+      contact the Cornell University Institutional Review Board (IRB) for Human Participants 
+      at 607-255-6182 or access their website at 
+      <a href="https://researchservices.cornell.edu/offices/IRB" target="_blank">https://researchservices.cornell.edu/offices/IRB</a>.</p>
+
+      <p>Thank you for your participation!</p>
+    </div>
+  `,
+  choices: ['Finish']
+};
 
 timeline.push(consentForm);
 timeline.push(instruction);
+timeline.push(debriefForm);
 
 const politicalResponses = [
   "1 (Extremely liberal)",
