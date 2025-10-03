@@ -1011,8 +1011,8 @@ timeline.push(instruction);
 timeline.push(...trials);
 timeline.push(attentioncheck);
 timeline.push(demographicsQuestions);
-timeline.push(debriefForm);
 timeline.push(politicsQuestions);
+timeline.push(debriefForm);
 timeline.push(save_data);
 
 
