@@ -224,7 +224,7 @@ const debriefForm = {
 
 timeline.push(consentForm);
 timeline.push(instruction);
-timeline.push(debriefForm);
+
 
 const politicalResponses = [
   "1 (Extremely liberal)",
@@ -1012,8 +1012,9 @@ const save_data = {
      }, 5000)
    }
  };
-
+timeline.push(debriefForm);
 timeline.push(save_data);
+
 
 // Run experiment
 jsPsych.run(timeline);
