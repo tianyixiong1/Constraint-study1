@@ -127,26 +127,26 @@ const consentForm = {
           
           <h3>Taking part is voluntary</h3>
           <p>Please remember that your participation is voluntary. You may refuse to participate before the study begins, 
-discontinue at any time, or skip any questions/procedures that may make you feel uncomfortable, with no 
-penalty to you, and no effect on the compensation earned before withdrawing. Withdrawing from the study 
-will have no effect on your academic standing, record, or relationship with the university or other organization 
-or service that may be involved with the research. If you choose not to participate in this research study, 
-please ask your instructor, who should provide you with comparable assignments that you may choose to 
-complete (e.g. writing assignments, participation in other research experiments etc.).</p>
+          discontinue at any time, or skip any questions/procedures that may make you feel uncomfortable, with no 
+          penalty to you, and no effect on the compensation earned before withdrawing. Withdrawing from the study 
+          will have no effect on your academic standing, record, or relationship with the university or other organization 
+          or service that may be involved with the research. If you choose not to participate in this research study, 
+          please ask your instructor, who should provide you with comparable assignments that you may choose to 
+          complete (e.g. writing assignments, participation in other research experiments etc.).</p>
           
           <h3>If you have questions</h3>
           <p>The main researcher conducting this study is Jordan Wylie, a professor at Cornell University. Please ask any 
-questions you have now. If you have questions later, you may contact Professor Jordan Wylie at 
-<a href="mailto:jordan.wylie@cornell.edu">jordan.wylie@cornell.edu</a> or at (607) 255-4486. If you have any questions or concerns regarding your rights as 
-a subject in this study, you may contact the Institutional Review Board (IRB) for Human Participants at 
-607-255-6182 or access their website at <a href="https://researchservices.cornell.edu/offices/IRB">https://researchservices.cornell.edu/offices/IRB</a>. You may also report 
-your concerns or complaints anonymously online via NAVEX at <a href="http://www.hotline.cornell.edu">www.hotline.cornell.edu</a> or by calling toll free 
-at 1-866-293-3077. NAVEX is an independent organization that serves as a liaison between the University and 
-the person bringing the complaint so that anonymity can be ensured.</p>
+          questions you have now. If you have questions later, you may contact Professor Jordan Wylie at 
+          <a href="mailto:jordan.wylie@cornell.edu">jordan.wylie@cornell.edu</a> or at (607) 255-4486. If you have any questions or concerns regarding your rights as 
+          a subject in this study, you may contact the Institutional Review Board (IRB) for Human Participants at 
+          607-255-6182 or access their website at <a href="https://researchservices.cornell.edu/offices/IRB">https://researchservices.cornell.edu/offices/IRB</a>. You may also report 
+          your concerns or complaints anonymously online via NAVEX at <a href="http://www.hotline.cornell.edu">www.hotline.cornell.edu</a> or by calling toll free 
+          at 1-866-293-3077. NAVEX is an independent organization that serves as a liaison between the University and 
+          the person bringing the complaint so that anonymity can be ensured.</p>
           
           <h3>Statement of Consent</h3>
           <p>I have read the above information, and have received answers to any questions I asked. I consent to take part 
-in the study.</p>
+          in the study.</p>
           
           <p>If you agree to the statements above and agree to participate, please select the “I approve” option below. 
           Otherwise, please select "I DO NOT approve" option and exit the study at this time.</p>
