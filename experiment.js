@@ -222,9 +222,6 @@ const debriefForm = {
   choices: ['Finish']
 };
 
-timeline.push(consentForm);
-timeline.push(instruction);
-
 
 const politicalResponses = [
   "1 (Extremely liberal)",
@@ -773,7 +770,6 @@ chosenGroup.forEach((scenario,sIdx)=>{
   });
 });
 
-timeline.push(...trials);
 
 // attention check question
 
@@ -798,7 +794,7 @@ var attentioncheck = {
   }
 };
 
-timeline.push(attentioncheck);
+
 
 // DEMOGRAPHICS
 const demographicsQuestions = {
@@ -925,7 +921,6 @@ const demographicsQuestions = {
   }
 };
 
-timeline.push(demographicsQuestions);
 
 const politicsQuestions = {
   type: jsPsychSurveyMultiChoice,
@@ -978,7 +973,6 @@ const politicsQuestions = {
   }
 };
 
-timeline.push(politicsQuestions);
 
 // DataPipe conclude data collection
 const save_data = {
@@ -1012,7 +1006,13 @@ const save_data = {
      }, 5000)
    }
  };
+timeline.push(consentForm);
+timeline.push(instruction);
+timeline.push(...trials);
+timeline.push(attentioncheck);
+timeline.push(demographicsQuestions);
 timeline.push(debriefForm);
+timeline.push(politicsQuestions);
 timeline.push(save_data);
 
 
