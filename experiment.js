@@ -69,7 +69,7 @@ const enterFullscreen = {
 timeline.push(enterFullscreen);
 
 
-// Consent form Updated Sep 19
+// Consent form Updated Oct 3
 const consentForm = {
   type: jsPsychSurveyMultiChoice,
   preamble: '<h2 style="text-align:center"><strong>Consent Form</strong></h2>',
@@ -78,47 +78,90 @@ const consentForm = {
       name: 'consent',
       prompt: `
         <div style="text-align:left; max-width:800px; margin:auto;">
-          <p>Please consider this information carefully before deciding whether to participate in this research.</p>
-
-          <p>The purpose of this research is to examine which factors influence social judgment and decision-making.
-          You will be asked to make judgments about individuals and actions in social scenarios. We are simply interested
-          in your judgment. The study will take less than 15 minutes to complete, and you will receive 
-          <strong>$2.30 through Prolific</strong>. There are no anticipated risks associated with participating in this study.
-          The effects of participating should be comparable to those you would ordinarily experience from viewing a computer 
-          monitor and using a mouse or keyboard for a similar amount of time. At the end of the study, we will provide an 
-          explanation of the questions that motivate this line of research and will describe the potential implications.</p>
-
-          <p>Your participation in this study is completely voluntary and you may refuse to participate or you may 
-          choose to withdraw at any time without penalty or loss of benefits to which you are otherwise entitled.
-          Your participation in this study will remain confidential. No personally identifiable information will be
-          associated with your data. Also, all analyses of the data will be averaged across all the participants, so 
-          your individual responses will never be specifically analyzed.</p>
-
-          <p>If you have questions or concerns about your participation or payment or want to request a summary of 
-          research findings, please contact the research manager: Jordan Wylie, 
-          <a href="mailto:jordan.wylie@cornell.edu">jordan.wylie@cornell.edu</a>.</p>
-
-          <p>For questions, concerns, suggestions, or complaints that have not been or cannot be addressed by the researcher,
-          or to report research-related harm, please contact the Committee on the Use of Human Subjects in Research at Cornell University.</p>
-
-          <p>Please print or save a copy of this form for your records.</p>
-
-          <p><strong>Agreement:</strong><br>
-          The nature and purpose of this research have been sufficiently explained and I agree to participate in this study. 
-          I understand that I am free to withdraw at any time without incurring any penalty.</p>
-
-          <p>If you agree to the statements above and agree to participate in this study,
-          please select the “Consent given” button below to continue. Otherwise, please exit the study at this time.</p>
+          <p>We are asking you to participate in a research study titled <em>“Social Judgment and Decision-Making”</em>. 
+          We will describe this study to you and answer any of your questions. This form has information to help you decide 
+          whether or not you wish to participate – please review it carefully. Your participation is voluntary. This study is 
+          being led by Professor Jordan Wylie, Department of Psychology.</p>
+          
+          <h3>What the study is about</h3>
+          <p>The purpose of this research is to explore how people view and judge the actions of a character in a story differently. 
+          You will be made unaware of the full nature or purpose of the research to maintain validity of the research, 
+          but you will be fully debriefed at the end.</p>
+          
+          <h3>What we will ask you to do</h3>
+          <p>We will ask you to...</p>
+          <ol>
+            <li>Complete a study that takes approximately [5–30] minutes.</li>
+            <li>The study will include demographic questions (e.g., age, gender), brief tasks or vignettes, and questions about your thoughts, perceptions, and reactions.</li>
+            <li>In some cases, you may be asked to read short stories or view images before answering questions.</li>
+          </ol>
+          
+          <h3>Risks and discomforts</h3>
+          <p>Participants will be asked questions and encounter stimuli involving moral beliefs, 
+          which may be uncomfortable. The images presented will include images from a standardized set, including gross and 
+          disgusting things like rotten food and vomit as well as scary things like snakes and spiders. While there are 
+          measures put in place by the researcher to secure data, there is always a risk of a potential breach of 
+          confidentiality. Please tell the researchers if you believe you are harmed from your participation in the study. </p>
+          
+          <h3>Benefits</h3>
+          <p>It is hoped that this study will contribute to knowledge about how people view and make judgements about 
+          others. You are not expected to directly benefit from participation in the study.</p>
+          
+          <h3>Incentives for participation</h3>
+          <p>You will receive course credit for the time spent participating at a rate of 1 credit per hour. If participating 
+          through Prolific/Cloud, you will be paid [$0.75-$4.50] (<em>rate of $9/hr</em>) for your participation in the study. </p>
+          
+          <h3>Privacy/Confidentiality/Data Security</h3>
+          <p>You will not be asked to provide information that could be used to identify you personally.</p>
+          
+          <p>We anticipate that your participation in this survey presents no greater risk than everyday use of the Internet.</p>
+          
+          <p>Please note that the survey(s) are being conducted with the help of <em>JsPsych</em>, an organization not affiliated with 
+          Cornell and with its own privacy and security policies that you can find at its website. We anticipate that your 
+          participation in this survey presents no greater risk than everyday use of the Internet. </p>
+          
+          <h3>Sharing De-identified Data Collected in this Research</h3>
+          <p>De-identified data from this study may be shared with the research community at large to advance science and 
+          health. We will remove or code any personal information that could identify you before files are shared with 
+          other researchers to ensure that, by current scientific standards and known methods, no one will be able to 
+          identify you from the information we share. Despite these measures, we cannot guarantee anonymity of your 
+          personal data.</p>
+          
+          <h3>Taking part is voluntary</h3>
+          <p>Please remember that your participation is voluntary. You may refuse to participate before the study begins, 
+discontinue at any time, or skip any questions/procedures that may make you feel uncomfortable, with no 
+penalty to you, and no effect on the compensation earned before withdrawing. Withdrawing from the study 
+will have no effect on your academic standing, record, or relationship with the university or other organization 
+or service that may be involved with the research. If you choose not to participate in this research study, 
+please ask your instructor, who should provide you with comparable assignments that you may choose to 
+complete (e.g. writing assignments, participation in other research experiments etc.).</p>
+          
+          <h3>If you have questions</h3>
+          <p>The main researcher conducting this study is Jordan Wylie, a professor at Cornell University. Please ask any 
+questions you have now. If you have questions later, you may contact Professor Jordan Wylie at 
+<a href="mailto:jordan.wylie@cornell.edu">jordan.wylie@cornell.edu</a> or at (607) 255-4486. If you have any questions or concerns regarding your rights as 
+a subject in this study, you may contact the Institutional Review Board (IRB) for Human Participants at 
+607-255-6182 or access their website at <a href="https://researchservices.cornell.edu/offices/IRB">https://researchservices.cornell.edu/offices/IRB</a>. You may also report 
+your concerns or complaints anonymously online via NAVEX at <a href="http://www.hotline.cornell.edu">www.hotline.cornell.edu</a> or by calling toll free 
+at 1-866-293-3077. NAVEX is an independent organization that serves as a liaison between the University and 
+the person bringing the complaint so that anonymity can be ensured.</p>
+          
+          <h3>Statement of Consent</h3>
+          <p>I have read the above information, and have received answers to any questions I asked. I consent to take part 
+in the study.</p>
+          
+          <p>If you agree to the statements above and agree to participate, please select the “I approve” option below. 
+          Otherwise, please select "I DO NOT approve" option and exit the study at this time.</p>
         </div>
       `,
-      options: ["Consent not given", "Consent given"],
+      options: ["I DO NOT approve", "I approve"],
       horizontal: true,
       required: true
     }
   ],
   on_finish: function (data) {
     const resp = jsPsych.data.get().last(1).values()[0].response.consent;
-    if (resp === "Consent not given") {
+    if (resp === "I DO NOT approve") {
       jsPsych.endExperiment(`
         <p class="jspsych-center">
           You did not consent to participate in this study.<br>
