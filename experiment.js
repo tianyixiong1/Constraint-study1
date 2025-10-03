@@ -1,4 +1,4 @@
-// Add custom CSS for sliders updated at Sep 26
+// Add CSS for sliders updated Sep 26
 const style = document.createElement("style");
 style.innerHTML = `
 /* WebKit browsers (Chrome, Safari, Edge) */
@@ -245,7 +245,7 @@ const attention_scale = [
 ];
 
 
-// Scenario Stimuli
+// Scenario Stimuli Updated Oct 3
 const scenarioStimuli = [
   { 
     id: 1,
@@ -269,7 +269,15 @@ const scenarioStimuli = [
       "switch insurance plans",
       "take out a loan"],
     outcome_f: "After doing this, Heike gets into serious financial trouble. Her husband has to go without medication, and he soon gets more ill.",
-    outcome_m: "After doing this, Heinz gets into serious financial trouble. His wife has to go without medication, and she soon gets more ill."
+    outcome_m: "After doing this, Heinz gets into serious financial trouble. His wife has to go without medication, and she soon gets more ill.",
+    causal_f: "Heike caused her husband to get more ill",
+    causal_m: "Heinz caused his wife to get more ill",
+    causalcertain_f: " her husband was going to get more ill.",
+    causalcertain_m: "his wife was going to get more ill.",
+    counter_m:"his wife wouldn't have gotten more ill.",
+    counter_f: "her husband wouldn't have gotten more ill.",
+    blame_f:"Heike should be blamed for her husband getting sicker.",
+    blame_m:"Heinz should be blamed for his wife getting sicker."
   },
   {
     id: 2,
@@ -293,8 +301,17 @@ const scenarioStimuli = [
       "take a public bus",
       "try to convince a passing driver to trade cars"],
     outcome_f: "Josie does not make her originally scheduled flight, so other people going on the safari have to wait for her.",
-    outcome_m: "Josh does not make his originally scheduled flight, so other people going on the safari have to wait for him."
+    outcome_m: "Josh does not make his originally scheduled flight, so other people going on the safari have to wait for him.",
+    causal_f: "Josie caused the safari to be delayed.",
+    causal_m: "Josh caused the safari to be delayed.",
+    causalcertain_f: "the safari was going to be delayed.",
+    causalcertain_m: "the safari was going to be delayed.",
+    counter_m:"the safari wouldn't have been delayed.",
+    counter_f: "the safari wouldn't have been delayed.",
+    blame_f:"Josie should be blamed for the safari being delayed.",
+    blame_m:"Josh should be blamed for the safari being delayed."
   },
+
   {
     id: 3,
     female_agent: "Brianna is the evening manager at a bakery. Near the end of the day, she realizes that $50.75 is missing from the register and that she is responsible for accounting for the money at the end of the day. Brianna knows she has to make sure the register is balanced or she might lose her job.",
@@ -317,7 +334,15 @@ const scenarioStimuli = [
       "sell one of his kidneys",
       "stage a robbery"],
     outcome_f: "After the owner of the bakery finds out what happened, she fires the entire staff working that day.",
-    outcome_m: "After the owner of the bakery finds out what happened, she fires the entire staff working that day."
+    outcome_m: "After the owner of the bakery finds out what happened, she fires the entire staff working that day.",
+    causal_f: "Brianna caused the bakery staff to be fired.",
+    causal_m: "Brian caused the bakery staff to be fired.",
+    causalcertain_f: "the staff was going to be fired.",
+    causalcertain_m: "the staff was going to be fired.",
+    counter_m:"the staff wouldn't have been fired.",
+    counter_f: "the staff wouldn't have been fired.",
+    blame_f:"Brianna should be blamed for bakery staff being fired.",
+    blame_m:"Brian should be blamed for bakery staff being fired."
   },
   {
     id: 4,
@@ -341,7 +366,15 @@ const scenarioStimuli = [
       "pull the fire alarm",
       "renew his membership"],
     outcome_f: "Despite doing this, Liz cannot get into the gym, and she misses the racquetball game with her friends. Without Liz, her friends do not have enough players and must cancel the game.",
-    outcome_m: "Despite doing this, Leo cannot get into the gym, and he misses the racquetball game with his friends. Without Leo, his friends do not have enough players and must cancel the game."
+    outcome_m: "Despite doing this, Leo cannot get into the gym, and he misses the racquetball game with his friends. Without Leo, his friends do not have enough players and must cancel the game.",
+    causal_f: "Liz caused the racquetball game to be cancelled.",
+    causal_m: "Leo caused the racquetball game to be cancelled.",
+    causalcertain_f: "the racquetball game was going to be cancelled.",
+    causalcertain_m: "the racquetball game was going to be cancelled.",
+    counter_m:"the racquetball game wouldn't have been cancelled.",
+    counter_f: "the racquetball game wouldn't have been cancelled.",
+    blame_f:"Liz should be blamed for the racquetball game being cancelled.",
+    blame_m:"Leo should be blamed for the racquetball game being cancelled."
   },
   {
     id: 5,
@@ -365,7 +398,16 @@ const scenarioStimuli = [
       "lie that his house burnt down",
       "quickly try to redo the assignment"],
     outcome_f: "After Mary does this, her teacher gives her a zero as her grade for the assignment.",
-    outcome_m: "After Mark does this, his teacher gives him a zero as his grade for the assignment."},
+    outcome_m: "After Mark does this, his teacher gives him a zero as his grade for the assignment.",
+    causal_f: "Mary caused herself to get a zero.",
+    causal_m: "Mark caused himself to get a zero.",
+    causalcertain_f: "she was going to get a zero for the assignment.",
+    causalcertain_m: "he was going to get a zero for the assignment.",
+    counter_m:"he wouldn't have gotten a zero for the assignment.",
+    counter_f: "she wouldn't have gotten a zero for the assignment.",
+    blame_f:"Mary should be blamed for getting a zero on the assignment.",
+    blame_m:"Mark should be blamed for getting a zero on the assignment."
+  },
 
     {
     id: 6,
@@ -389,7 +431,17 @@ const scenarioStimuli = [
       "steal all of the food and water",
       "throw away all of the food" ],
     outcome_f: "After Brooke does this, she and her friends spend several days lost in the woods, cold, hungry, and thirsty.",
-    outcome_m: "After Brad does this, he and his friends spend several days lost in the woods, cold, hungry, and thirsty."},
+    outcome_m: "After Brad does this, he and his friends spend several days lost in the woods, cold, hungry, and thirsty.",
+    causal_f: "Brooke caused her friends to remain lost.",
+    causal_m: "Brad caused his friends to remain lost.",
+    causalcertain_f: "she and her friends were going to remain lost.",
+    causalcertain_m: "he and his friends were going to remain lost.",
+    counter_m:"he wouldn't have gotten a zero for the assignment.",
+    counter_f: "she wouldn't have gotten a zero for the assignment.",
+    blame_f:"she and her friends wouldn't have remained lost.",
+    blame_m:"he and his friends wouldn't have remained lost."
+  },
+    
 
     {
     id: 7,
@@ -413,7 +465,15 @@ const scenarioStimuli = [
       "teleport into the concert",
       "try to buy a ticket off another person"],
     outcome_f: "After Darya does this, the concert staff at the entrance become suspicious of Darya and her friends and refuse to let them in.",
-    outcome_m: "After David does this, the concert staff at the entrance become suspicious of David and his friends and refuse to let them in."},
+    outcome_m: "After David does this, the concert staff at the entrance become suspicious of David and his friends and refuse to let them in.",
+    causal_f: "Darya caused her friends to miss the concert.",
+    causal_m: "David caused his friends to miss the concert.",
+    causalcertain_f: "her friends were going to miss the concert.",
+    causalcertain_m: "his friends were going to miss the concert.",
+    counter_m:"his friends wouldn't have missed the concert.",
+    counter_f: "her friends wouldn't have missed the concert.",
+    blame_f:"Darya should be blamed for her friends missing the concert.",
+    blame_m:"David should be blamed for his friends missing the concert."},
     
     {
     id: 8,
@@ -437,7 +497,15 @@ const scenarioStimuli = [
       "tackle him and hold him down",
       "wave to the parents"],
     outcome_f: "After Eunice does this, the family begins to feel uncomfortable about Eunice’s behavior and decides to leave the beach for the day.",
-    outcome_m: "After Ethan does this, the family begins to feel uncomfortable about Ethan’s behavior and decides to leave the beach for the day."},
+    outcome_m: "After Ethan does this, the family begins to feel uncomfortable about Ethan’s behavior and decides to leave the beach for the day.",
+    causal_f: "Eunice caused the family to leave the beach.",
+    causal_m: "Ethan caused the family to leave the beach.",
+    causalcertain_f: "the family was going to leave the beach.",
+    causalcertain_m: "the family was going to leave the beach.",
+    counter_m:"the family wouldn't have left the beach.",
+    counter_f: "the family wouldn't have left the beach.",
+    blame_f:"Eunice should be blamed for the family leaving the beach.",
+    blame_m:"Ethan should be blamed for the family leaving the beach."},
 
     {
     id: 9,
@@ -461,7 +529,15 @@ const scenarioStimuli = [
       "tailgate the car",
       "take a detour at the next exit"],
     outcome_f: "After Emma does this, she drifting car crashes into another car, resulting in a pileup accident.",
-    outcome_m: "After Eamon does this, he drifting car crashes into another car, resulting in a pileup accident."},
+    outcome_m: "After Eamon does this, he drifting car crashes into another car, resulting in a pileup accident.",
+    causal_f: "Emma caused the accident.",
+    causal_m: "Eamon caused the accident.",
+    causalcertain_f: "the accident was going to occur.",
+    causalcertain_m: "the accident was going to occur.",
+    counter_m:"the accident wouldn't have occurred.",
+    counter_f: "the accident wouldn't have occurred.",
+    blame_f:"Emma should be blamed for the accident.",
+    blame_m:"Eamon should be blamed for the accident."},
    
     {
     id: 10,
@@ -485,7 +561,15 @@ const scenarioStimuli = [
       "turn invisible",
       "yell in gibberish until she leaves"],
     outcome_f: "After Chloe tries to do this, the woman attempts to walk all the way to her destination. As a result, the woman is late.",
-    outcome_m: "After Cameron tries to do this, the woman attempts to walk all the way to her destination. As a result, the woman is late."},
+    outcome_m: "After Cameron tries to do this, the woman attempts to walk all the way to her destination. As a result, the woman is late.",
+    causal_f: "Chloe caused the woman to be late to her destination.",
+    causal_m: "Cameron caused the woman to be late to her destination.",
+    causalcertain_f: "the woman was going to be late to her destination.",
+    causalcertain_m: "the woman was going to be late to her destination.",
+    counter_m:"the woman wouldn't have been late to her destination.",
+    counter_f: "the woman wouldn't have been late to her destination.",
+    blame_f:"Chole should be blamed for the woman being late to her destination.",
+    blame_m:"Cameron should be blamed for the woman being late to her destination."},
 
     {
     id: 11,
@@ -510,7 +594,15 @@ const scenarioStimuli = [
       "pour water on the car to cool it",
       "slash the tires"],
     outcome_f: "The dog dies inside the car before anyone else arrives to help.",
-    outcome_m: "The dog dies inside the car before anyone else arrives to help."},
+    outcome_m: "The dog dies inside the car before anyone else arrives to help.",
+    causal_f: "Erica caused the dog to die.",
+    causal_m: "Eric caused the dog to die.",
+    causalcertain_f: "the dog was going to die.",
+    causalcertain_m: "the dog was going to die.",
+    counter_m:"the dog wouldn't have died.",
+    counter_f: "the dog wouldn't have died.",
+    blame_f:"Erica should be blamed for the dog dying.",
+    blame_m:"Eric should be blamed for the dog dying."},
 
     {
     id: 12,
@@ -534,7 +626,15 @@ const scenarioStimuli = [
       "take a train instead",
       "threaten security with the knife"],
     outcome_f: "The airport security becomes suspicious of Carla, so they take her in custody and she ends up missing the festival.",
-    outcome_m: "The airport security becomes suspicious of Carl, so they take him in custody and he ends up missing the festival."},
+    outcome_m: "The airport security becomes suspicious of Carl, so they take him in custody and he ends up missing the festival.",
+    causal_f: "Carla caused herself to miss the festival.",
+    causal_m: "Carl caused himself to miss the festival.",
+    causalcertain_f: "she was going to miss the festival.",
+    causalcertain_m: "he was going to miss the festival.",
+    counter_m:"he wouldn't have missed the festival.",
+    counter_f: "she wouldn't have missed the festival.",
+    blame_f:"Carla should be blamed for missing the festival.",
+    blame_m:"Carl should be blamed for missing the festival."},
 
     {
     id: 13,
@@ -558,7 +658,15 @@ const scenarioStimuli = [
       "steal someone else’s ring",
       "tell her sister as soon as possible"],
     outcome_f: "When her sister finds out her ring is missing, she is disappointed and decides to cancel the wedding.",
-    outcome_m: "When his sister finds out her ring is missing, she is disappointed and decides to cancel the wedding."},
+    outcome_m: "When his sister finds out her ring is missing, she is disappointed and decides to cancel the wedding.",
+    causal_f: "Diana caused the wedding to be cancelled.",
+    causal_m: "Daniel caused the wedding to be cancelled.",
+    causalcertain_f: "the wedding was going to be cancelled.",
+    causalcertain_m: "the wedding was going to be cancelled.",
+    counter_m:"the wedding wouldn't have been cancelled.",
+    counter_f: "the wedding wouldn't have been cancelled.",
+    blame_f:"Diana should be blamed for the wedding being cancelled.",
+    blame_m:"Daniel should be blamed for the wedding being cancelled."},
     
     {
     id: 14,
@@ -583,7 +691,15 @@ const scenarioStimuli = [
       "pitch his situation to a reality TV network"
     ],
     outcome_f: "After Andrea does this, her father’s mental and physical health quickly deteriorates.",
-    outcome_m: "After Andy does this, his father’s mental and physical health quickly deteriorates."},
+    outcome_m: "After Andy does this, his father’s mental and physical health quickly deteriorates.",
+    causal_f: "Andrea caused his father's condition to get worse.",
+    causal_m: "Andy caused his father's condition to get worse.",
+    causalcertain_f: "her father's condition was going to get worse.",
+    causalcertain_m: "his father's condition was going to get worse.",
+    counter_m:"his father's condition wouldn't have gotten worse.",
+    counter_f: "her father's condition wouldn't have gotten worse.",
+    blame_f:"Andrea should be blamed for his father's condition getting worse.",
+    blame_m:"Andy should be blamed for his father's condition getting worse."},
 
     {
     id: 15,
@@ -607,7 +723,15 @@ const scenarioStimuli = [
       "serve engine fuel to the passengers",
       "throw disobedient passengers off the boat"],
     outcome_f: "After Amanda tries this, several passengers suffer injuries from heatstroke and dehydration.",
-    outcome_m: "After Ahmed tries this, several passengers suffer injuries from heatstroke and dehydration."},
+    outcome_m: "After Ahmed tries this, several passengers suffer injuries from heatstroke and dehydration.",
+    causal_f: "Amanda caused his passengers' injuries.",
+    causal_m: "Ahmed caused his passengers' injuries.",
+    causalcertain_f: "the passengers were going to suffer injuries.",
+    causalcertain_m: "the passengers were going to suffer injuries.",
+    counter_m:"the passengers wouldn't have suffered injuries.",
+    counter_f: "the passengers wouldn't have suffered injuries.",
+    blame_f:"Amanda should be blamed for his passengers' injuries.",
+    blame_m:"Ahmed should be blamed for his passengers' injuries."},
 
     {
     id: 16,
@@ -631,7 +755,15 @@ const scenarioStimuli = [
       "saw Todd’s arm off",
       "yell at Todd for getting stuck"],
     outcome_f: "After Eva does this, Todd dies.",
-    outcome_m: "After Evan does this, Todd dies."},
+    outcome_m: "After Evan does this, Todd dies.",
+    causal_f: "Eva caused Todd to die.",
+    causal_m: "Evan caused Todd to die.",
+    causalcertain_f: "Todd was going to die.",
+    causalcertain_m: "Todd was going to die.",
+    counter_m:"Todd wouldn't have died.",
+    counter_f: "Todd wouldn't have died.",
+    blame_f:"Eva should be blamed for Todd's death.",
+    blame_m:"Evan should be blamed for Todd's death."},
 
     {
     id: 17,
@@ -655,7 +787,15 @@ const scenarioStimuli = [
       "stage a break-in at the store",
       "tell his lawyer that he’s sick"],
     outcome_f: "After the owner returns, she fires her.",
-    outcome_m: "After the owner returns, she fires him."},
+    outcome_m: "After the owner returns, she fires him.",
+    causal_f: "Jess caused herself to be fired.",
+    causal_m: "Jeff caused himself to be fired.",
+    causalcertain_f: "she was going get fired.",
+    causalcertain_m: "he was going get fired.",
+    counter_m:"he wouldn't have gotten fired.",
+    counter_f: "she wouldn't have gotten fired.",
+    blame_f:"Jess should be blamed for getting fired.",
+    blame_m:"Jeff should be blamed for getting fired."},
 
     {
     id: 18,
@@ -679,10 +819,17 @@ const scenarioStimuli = [
       "leave his dogs with him",
       "steal his dogs for extra speed"],
     outcome_f: "When the competition judges find out what happened, they cancel the race and no one wins the prize money.",
-    outcome_m: "When the competition judges find out what happened, they cancel the race and no one wins the prize money."}
-
-
+    outcome_m: "When the competition judges find out what happened, they cancel the race and no one wins the prize money.",
+    causal_f: "Shania caused the race to be cancelled.",
+    causal_m: "Simon caused the race to be cancelled.",
+    causalcertain_f: "the race was going to be cancelled..",
+    causalcertain_m: "the race was going to be cancelled.",
+    ounter_m:"the race wouldn't have been cancelled.",
+    counter_f: "the race wouldn't have been cancelled.",
+    blame_f:"Shania should be blamed for the race being cancelled.",
+    blame_m:"Simon should be blamed for the race being cancelled."}
 ];
+
 
 // Experiment trails
 // Study 1 Generate five possible actions for each senarios, and then, rate the actions they generated from morality, normality, and probability aspects
