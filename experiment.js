@@ -870,26 +870,25 @@ chosenGroup.forEach((scenario,sIdx)=>{
       <label><strong>Action ${i}</strong></label><br>
       <textarea name="action_${scenario.id}_${i}" rows="2" 
         style="width:100%; max-width:600px; display:block; margin: 0 auto 35px auto;" required></textarea>
-        <!-- margin-bottom increased to 35px -->
 
       <div style="max-width:600px; margin: 0 auto 15px auto;">
         ${topScale}
       </div>
 
       <div style="margin-bottom:15px; max-width:600px; margin: 0 auto;">
-        <em>How probable is it that ${agentName} will do that thing?</em><br>
+        How probable is it that ${agentName} will do that thing?<br>
         <input type="range" name="prob_${scenario.id}_${i}" min="0" max="100" step="1" value="50" 
           style="width:100%;">
       </div>
 
       <div style="margin-bottom:15px; max-width:600px; margin: 0 auto;">
-        <em>How morally acceptable would it be for ${agentName} to do that thing?</em><br>
+        How morally acceptable would it be for ${agentName} to do that thing?<br>
         <input type="range" name="moral_${scenario.id}_${i}" min="0" max="100" step="1" value="50" 
           style="width:100%;">
       </div>
 
       <div style="margin-bottom:15px; max-width:600px; margin: 0 auto;">
-        <em>How normal would it be if ${agentName} did that thing?</em><br>
+        How normal would it be if ${agentName} did that thing?<br>
         <input type="range" name="norm_${scenario.id}_${i}" min="0" max="100" step="1" value="50" 
           style="width:100%;">
       </div>
