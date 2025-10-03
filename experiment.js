@@ -91,8 +91,7 @@ const consentForm = {
           <h3>What we will ask you to do</h3>
           <p>We will ask you to...</p>
           <ol>
-            <li>1. Complete a study that takes approximately [5–30] minutes. The study will include demographic questions (e.g., age, gender), brief tasks or vignettes, and questions about your thoughts, perceptions, and reactions.</li>
-            <li>In some cases, you may be asked to read short stories or view images before answering questions.</li>
+            <li>Complete a study that takes approximately [5–30] minutes. The study will include demographic questions (e.g., age, gender), brief tasks or vignettes, and questions about your thoughts, perceptions, and reactions. In some cases, you may be asked to read short stories or view images before answering questions.</li>
           </ol>
           
           <h3>Risks and discomforts</h3>
