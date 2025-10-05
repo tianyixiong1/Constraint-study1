@@ -1,3 +1,10 @@
+//Add helper function for data format updated Oct 6
+function expandResponse(data) {
+  const responses = data.response;
+  for (let key in responses) {
+    data[key] = responses[key];
+  }
+}
 // Add CSS for sliders updated Sep 26
 const style = document.createElement("style");
 style.innerHTML = `
@@ -912,7 +919,8 @@ chosenGroup.forEach((scenario,sIdx)=>{
     `,
     html: block,
     button_label: "Continue",
-    data:{scenario_id:scenario.id,gender:genderKey,agent:agentName}
+    data:{scenario_id:scenario.id,gender:genderKey,agent:agentName},
+    on_finish: expandResponse
   });
 });
 
@@ -1064,6 +1072,7 @@ const demographicsQuestions = {
     jsPsych.data
     .getDataByTimelineNode(jsPsych.getCurrentTimelineNodeID())
     .addToAll(demographicsData);
+    
   }
 };
 
