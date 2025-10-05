@@ -1,10 +1,3 @@
-//Add helper function for data format updated Oct 6
-function expandResponse(data) {
-  const responses = data.response;
-  for (let key in responses) {
-    data[key] = responses[key];
-  }
-}
 // Add CSS for sliders updated Sep 26
 const style = document.createElement("style");
 style.innerHTML = `
