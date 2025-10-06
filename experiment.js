@@ -932,7 +932,7 @@ var attentioncheck = {
     let attentionData = data.response;
 
     attentionData = {
-      attention_check: attentionData['attentioncheck']
+      attention_check: attentionData['attentioncheck'] + 1 // updated Oct 6 --"+1"
     };
 
     jsPsych.data
@@ -1059,8 +1059,7 @@ const demographicsQuestions = {
       race_ethnicity_hispanic: demographicsData['race-ethnicity-hispanic'] || '',
       race_ethnicity_other: demographicsData['race-ethnicity-other'] || '',
       race_ethnicity_na: demographicsData['race-ethnicity-prefer-not'] || '',
-      gender: gender,
-      education: demographicsData['education'] || ''
+      gender: gender
     };
     jsPsych.data
     .getDataByTimelineNode(jsPsych.getCurrentTimelineNodeID())
