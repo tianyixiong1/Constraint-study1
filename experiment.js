@@ -831,15 +831,13 @@ const scenarioStimuli = [
 ];
 
 
-// Experiment trails
-// Study 1 Generate five possible actions for each senarios, and then, rate the actions they generated from morality, normality, and probability aspects
+// Study 1: Generate four scenarios (2 with female agents, 2 with male agents)--updated Oct 9
 const shuffled = jsPsych.randomization.shuffle(scenarioStimuli);
-const groups = [shuffled.slice(0,6), shuffled.slice(6,12), shuffled.slice(12,18)];
-const chosenGroup = jsPsych.randomization.sampleWithoutReplacement(groups,1)[0];
+const chosenGroup = jsPsych.randomization.sampleWithoutReplacement(shuffled, 4);
 
-const half = Math.floor(chosenGroup.length/2);
+// Assign 2 female and 2 male agents
 const genderOrder = jsPsych.randomization.shuffle(
-  Array(half).fill("female_agent").concat(Array(chosenGroup.length-half).fill("male_agent"))
+  Array(2).fill("female_agent").concat(Array(2).fill("male_agent"))
 );
 
 const topScale = `
@@ -848,53 +846,52 @@ const topScale = `
     <span style="position:absolute;left:0;top:-1.2em;font-size:14px;margin-left:-8px;">Least</span>
     <span style="position:absolute;right:0;top:-1.2em;font-size:14px;margin-right:-8px;">Most</span>
     ${Array.from({length:11},(_,i)=>i*10).map(v=>{
-      const pos = v;
-      return `<span style="position:absolute;left:${pos}%;top:1.2em;transform:translateX(-50%);font-size:10px;">${v}</span>`;
+      return `<span style="position:absolute;left:${v}%;top:1.2em;transform:translateX(-50%);font-size:10px;">${v}</span>`;
     }).join("")}
   </div>
 `;
 
 const trials = [];
 
-chosenGroup.forEach((scenario,sIdx)=>{
+chosenGroup.forEach((scenario, sIdx) => {
   const genderKey = genderOrder[sIdx];
   const scenarioText = scenario[genderKey];
-  const agentName = genderKey==="female_agent" ? scenario.female_name : scenario.male_name;
+  const agentName = genderKey === "female_agent" ? scenario.female_name : scenario.male_name;
 
-  const cells=[];
+  const cells = [];
 
-// Add spacing -- updated at Sep 26
-  for(let i=1;i<=5;i++){
-  cells.push(`
-    <div style="margin-bottom:40px;">
-      <label><strong>Action ${i}</strong></label><br>
-      <textarea name="action_${scenario.id}_${i}" rows="2" 
-        style="width:100%; max-width:600px; display:block; margin: 0 auto 35px auto;" required></textarea>
+  // 5 actions per scenario
+  for (let i = 1; i <= 5; i++) {
+    cells.push(`
+      <div style="margin-bottom:40px;">
+        <label><strong>Action ${i}</strong></label><br>
+        <textarea name="action_${scenario.id}_${i}" rows="2"
+          style="width:100%; max-width:600px; display:block; margin: 0 auto 35px auto;" required></textarea>
 
-      <div style="max-width:600px; margin: 0 auto 15px auto;">
-        ${topScale}
+        <div style="max-width:600px; margin: 0 auto 15px auto;">
+          ${topScale}
+        </div>
+
+        <div style="margin-bottom:15px; max-width:600px; margin: 0 auto;">
+          How probable is it that ${agentName} will do that thing?<br>
+          <input type="range" name="prob_${scenario.id}_${i}" min="0" max="100" step="1" value="50"
+            style="width:100%;">
+        </div>
+
+        <div style="margin-bottom:15px; max-width:600px; margin: 0 auto;">
+          How morally acceptable would it be for ${agentName} to do that thing?<br>
+          <input type="range" name="moral_${scenario.id}_${i}" min="0" max="100" step="1" value="50"
+            style="width:100%;">
+        </div>
+
+        <div style="margin-bottom:15px; max-width:600px; margin: 0 auto;">
+          How normal would it be if ${agentName} did that thing?<br>
+          <input type="range" name="norm_${scenario.id}_${i}" min="0" max="100" step="1" value="50"
+            style="width:100%;">
+        </div>
       </div>
-
-      <div style="margin-bottom:15px; max-width:600px; margin: 0 auto;">
-        How probable is it that ${agentName} will do that thing?<br>
-        <input type="range" name="prob_${scenario.id}_${i}" min="0" max="100" step="1" value="50" 
-          style="width:100%;">
-      </div>
-
-      <div style="margin-bottom:15px; max-width:600px; margin: 0 auto;">
-        How morally acceptable would it be for ${agentName} to do that thing?<br>
-        <input type="range" name="moral_${scenario.id}_${i}" min="0" max="100" step="1" value="50" 
-          style="width:100%;">
-      </div>
-
-      <div style="margin-bottom:15px; max-width:600px; margin: 0 auto;">
-        How normal would it be if ${agentName} did that thing?<br>
-        <input type="range" name="norm_${scenario.id}_${i}" min="0" max="100" step="1" value="50" 
-          style="width:100%;">
-      </div>
-    </div>
-  `);
-}
+    `);
+  }
 
   const block = `
     <div style="display:flex;flex-direction:column;gap:20px;">
@@ -912,11 +909,10 @@ chosenGroup.forEach((scenario,sIdx)=>{
     `,
     html: block,
     button_label: "Continue",
-    data:{scenario_id:scenario.id,gender:genderKey,agent:agentName},
+    data: { scenario_id: scenario.id, gender: genderKey, agent: agentName },
     on_finish: expandResponse
   });
 });
-
 
 // attention check question
 
