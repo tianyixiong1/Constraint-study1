@@ -874,49 +874,51 @@ function makeTopScale(type) {
     rightLabel = "Very normal";
   }
 
-return `
-  <div style="position:relative;width:100%;margin:20px 0 25px 0; padding-top:10px; padding-bottom:15px;">
-    <input type="range" disabled style="width:100%;visibility:hidden;">
-    <span style="position:absolute;left:0;top:-1.5em;font-size:14px;margin-left:-8px;">${leftLabel}</span>
-    <span style="position:absolute;right:0;top:-1.5em;font-size:14px;margin-right:-8px;">${rightLabel}</span>
-    ${Array.from({length:11},(_,i)=>i*10).map(v=>{
-      return `<span style="position:absolute;left:${v}%;top:1.5em;transform:translateX(-50%);font-size:10px;">${v}</span>`;
-    }).join("")}
-  </div>
-`;
+  return `
+    <div style="position:relative;width:100%;margin:0 0 12px 0;height:36px;">
+      <span style="position:absolute;left:0;top:0.4em;font-size:14px;margin-left:-8px;">${leftLabel}</span>
+      <span style="position:absolute;right:0;top:0.4em;font-size:14px;margin-right:-8px;">${rightLabel}</span>
+      ${Array.from({length:11},(_,i)=>i*10).map(v=>{
+        return `<span style="position:absolute;left:${v}%;top:30px;transform:translateX(-50%);font-size:11px;">${v}</span>`;
+      }).join("")}
+    </div>
+  `;
 }
 
 // 5 actions per scenario
 for (let i = 1; i <= 5; i++) {
   cells.push(`
-    <div style="margin-bottom:60px;">
+    <div style="margin-bottom:70px;">
       <label style="font-size:16px; font-weight:bold; display:block; margin-bottom:10px;">
         Action ${i}
       </label>
 
       <textarea name="action_${scenario.id}_${i}" rows="2"
-        style="width:100%; max-width:650px; display:block; margin: 0 auto 25px auto; padding:6px; font-size:14px;"
+        style="width:100%; max-width:650px; display:block; margin: 0 auto 35px auto; padding:6px; font-size:14px;"
         required></textarea>
 
-      <div style="margin:25px auto; max-width:650px;">
-        <p style="margin-bottom:6px;">How probable is it that ${agentName} will do that thing?</p>
+      <!-- Probable -->
+      <div style="margin:55px auto 45px auto; max-width:650px;">
+        <p style="margin-bottom:10px;">How probable is it that ${agentName} will do that thing?</p>
         ${makeTopScale("prob")}
         <input type="range" name="prob_${scenario.id}_${i}" min="0" max="100" step="1" value="50"
-          style="width:100%; margin-top:18px;">
+          style="width:100%; margin-top:8px;">
       </div>
 
-      <div style="margin:25px auto; max-width:650px;">
-        <p style="margin-bottom:6px;">How morally acceptable would it be for ${agentName} to do that thing?</p>
+      <!-- Moral -->
+      <div style="margin:40px auto 45px auto; max-width:650px;">
+        <p style="margin-bottom:10px;">How morally acceptable would it be for ${agentName} to do that thing?</p>
         ${makeTopScale("moral")}
         <input type="range" name="moral_${scenario.id}_${i}" min="0" max="100" step="1" value="50"
-          style="width:100%; margin-top:18px;">
+          style="width:100%; margin-top:8px;">
       </div>
 
-      <div style="margin:25px auto; max-width:650px;">
-        <p style="margin-bottom:6px;">How normal would it be if ${agentName} did that thing?</p>
+      <!-- Normal -->
+      <div style="margin:40px auto 45px auto; max-width:650px;">
+        <p style="margin-bottom:10px;">How normal would it be if ${agentName} did that thing?</p>
         ${makeTopScale("norm")}
         <input type="range" name="norm_${scenario.id}_${i}" min="0" max="100" step="1" value="50"
-          style="width:100%; margin-top:18px;">
+          style="width:100%; margin-top:8px;">
       </div>
     </div>
   `);
