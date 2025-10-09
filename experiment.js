@@ -889,38 +889,38 @@ function makeTopScale(type) {
 // 5 actions per scenario
 for (let i = 1; i <= 5; i++) {
   cells.push(`
-    <div style="margin-bottom:40px;">
-      <label><strong>Action ${i}</strong></label><br>
-      <textarea name="action_${scenario.id}_${i}" rows="2"
-        style="width:100%; max-width:600px; display:block; margin: 0 auto 35px auto;" required></textarea>
+    <div style="margin-bottom:60px;">
+      <label style="font-size:16px; font-weight:bold; display:block; margin-bottom:10px;">
+        Action ${i}
+      </label>
 
-      <!-- Probable -->
-      <div style="margin-bottom:15px; max-width:600px; margin: 0 auto;">
-        How probable is it that ${agentName} will do that thing?<br>
+      <textarea name="action_${scenario.id}_${i}" rows="2"
+        style="width:100%; max-width:650px; display:block; margin: 0 auto 25px auto; padding:6px; font-size:14px;"
+        required></textarea>
+
+      <div style="margin:25px auto; max-width:650px;">
+        <p style="margin-bottom:6px;">How probable is it that ${agentName} will do that thing?</p>
         ${makeTopScale("prob")}
         <input type="range" name="prob_${scenario.id}_${i}" min="0" max="100" step="1" value="50"
-          style="width:100%;">
+          style="width:100%; margin-top:18px;">
       </div>
 
-      <!-- Moral -->
-      <div style="margin-bottom:15px; max-width:600px; margin: 0 auto;">
-        How morally acceptable would it be for ${agentName} to do that thing?<br>
+      <div style="margin:25px auto; max-width:650px;">
+        <p style="margin-bottom:6px;">How morally acceptable would it be for ${agentName} to do that thing?</p>
         ${makeTopScale("moral")}
         <input type="range" name="moral_${scenario.id}_${i}" min="0" max="100" step="1" value="50"
-          style="width:100%;">
+          style="width:100%; margin-top:18px;">
       </div>
 
-      <!-- Normal -->
-      <div style="margin-bottom:15px; max-width:600px; margin: 0 auto;">
-        How normal would it be if ${agentName} did that thing?<br>
+      <div style="margin:25px auto; max-width:650px;">
+        <p style="margin-bottom:6px;">How normal would it be if ${agentName} did that thing?</p>
         ${makeTopScale("norm")}
         <input type="range" name="norm_${scenario.id}_${i}" min="0" max="100" step="1" value="50"
-          style="width:100%;">
+          style="width:100%; margin-top:18px;">
       </div>
     </div>
   `);
 }
-  
 
   const block = `
     <div style="display:flex;flex-direction:column;gap:20px;">
