@@ -874,17 +874,16 @@ function makeTopScale(type) {
     rightLabel = "Very normal";
   }
 
-  return `
-    <div style="position:relative;width:100%;margin:8px 0 15px 0;">
-      <input type="range" disabled style="width:100%;visibility:hidden;">
-      <span style="position:absolute;left:0;top:-1.2em;font-size:14px;margin-left:-8px;">${leftLabel}</span>
-      <span style="position:absolute;right:0;top:-1.2em;font-size:14px;margin-right:-8px;">${rightLabel}</span>
-      ${Array.from({length:11},(_,i)=>i*10).map(v=>{
-        return `<span style="position:absolute;left:${v}%;top:1.2em;transform:translateX(-50%);font-size:10px;">${v}</span>`;
-      }).join("")}
-    </div>
-  `;
-}
+return `
+  <div style="position:relative;width:100%;margin:20px 0 25px 0; padding-top:10px; padding-bottom:15px;">
+    <input type="range" disabled style="width:100%;visibility:hidden;">
+    <span style="position:absolute;left:0;top:-1.5em;font-size:14px;margin-left:-8px;">${leftLabel}</span>
+    <span style="position:absolute;right:0;top:-1.5em;font-size:14px;margin-right:-8px;">${rightLabel}</span>
+    ${Array.from({length:11},(_,i)=>i*10).map(v=>{
+      return `<span style="position:absolute;left:${v}%;top:1.5em;transform:translateX(-50%);font-size:10px;">${v}</span>`;
+    }).join("")}
+  </div>
+`;
 
 // 5 actions per scenario
 for (let i = 1; i <= 5; i++) {
