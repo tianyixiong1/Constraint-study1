@@ -860,37 +860,66 @@ chosenGroup.forEach((scenario, sIdx) => {
 
   const cells = [];
 
-  // 5 actions per scenario
-  for (let i = 1; i <= 5; i++) {
-    cells.push(`
-      <div style="margin-bottom:40px;">
-        <label><strong>Action ${i}</strong></label><br>
-        <textarea name="action_${scenario.id}_${i}" rows="2"
-          style="width:100%; max-width:600px; display:block; margin: 0 auto 35px auto;" required></textarea>
+  // Descriptive top scales--Updated Oct 9
+function makeTopScale(type) {
+  let leftLabel, rightLabel;
+  if (type === "prob") {
+    leftLabel = "Not at all probable";
+    rightLabel = "Very probable";
+  } else if (type === "moral") {
+    leftLabel = "Not at all acceptable";
+    rightLabel = "Very acceptable";
+  } else if (type === "norm") {
+    leftLabel = "Not at all normal";
+    rightLabel = "Very normal";
+  }
 
-        <div style="max-width:600px; margin: 0 auto 15px auto;">
-          ${topScale}
-        </div>
+  return `
+    <div style="position:relative;width:100%;margin:8px 0 15px 0;">
+      <input type="range" disabled style="width:100%;visibility:hidden;">
+      <span style="position:absolute;left:0;top:-1.2em;font-size:14px;margin-left:-8px;">${leftLabel}</span>
+      <span style="position:absolute;right:0;top:-1.2em;font-size:14px;margin-right:-8px;">${rightLabel}</span>
+      ${Array.from({length:11},(_,i)=>i*10).map(v=>{
+        return `<span style="position:absolute;left:${v}%;top:1.2em;transform:translateX(-50%);font-size:10px;">${v}</span>`;
+      }).join("")}
+    </div>
+  `;
+}
 
-        <div style="margin-bottom:15px; max-width:600px; margin: 0 auto;">
-          How probable is it that ${agentName} will do that thing?<br>
-          <input type="range" name="prob_${scenario.id}_${i}" min="0" max="100" step="1" value="50"
-            style="width:100%;">
-        </div>
+// 5 actions per scenario
+for (let i = 1; i <= 5; i++) {
+  cells.push(`
+    <div style="margin-bottom:40px;">
+      <label><strong>Action ${i}</strong></label><br>
+      <textarea name="action_${scenario.id}_${i}" rows="2"
+        style="width:100%; max-width:600px; display:block; margin: 0 auto 35px auto;" required></textarea>
 
-        <div style="margin-bottom:15px; max-width:600px; margin: 0 auto;">
-          How morally acceptable would it be for ${agentName} to do that thing?<br>
-          <input type="range" name="moral_${scenario.id}_${i}" min="0" max="100" step="1" value="50"
-            style="width:100%;">
-        </div>
-
-        <div style="margin-bottom:15px; max-width:600px; margin: 0 auto;">
-          How normal would it be if ${agentName} did that thing?<br>
-          <input type="range" name="norm_${scenario.id}_${i}" min="0" max="100" step="1" value="50"
-            style="width:100%;">
-        </div>
+      <!-- Probable -->
+      <div style="margin-bottom:15px; max-width:600px; margin: 0 auto;">
+        How probable is it that ${agentName} will do that thing?<br>
+        ${makeTopScale("prob")}
+        <input type="range" name="prob_${scenario.id}_${i}" min="0" max="100" step="1" value="50"
+          style="width:100%;">
       </div>
-    `);
+
+      <!-- Moral -->
+      <div style="margin-bottom:15px; max-width:600px; margin: 0 auto;">
+        How morally acceptable would it be for ${agentName} to do that thing?<br>
+        ${makeTopScale("moral")}
+        <input type="range" name="moral_${scenario.id}_${i}" min="0" max="100" step="1" value="50"
+          style="width:100%;">
+      </div>
+
+      <!-- Normal -->
+      <div style="margin-bottom:15px; max-width:600px; margin: 0 auto;">
+        How normal would it be if ${agentName} did that thing?<br>
+        ${makeTopScale("norm")}
+        <input type="range" name="norm_${scenario.id}_${i}" min="0" max="100" step="1" value="50"
+          style="width:100%;">
+      </div>
+    </div>
+  `);
+}
   }
 
   const block = `
