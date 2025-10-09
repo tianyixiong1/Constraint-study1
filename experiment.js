@@ -920,7 +920,7 @@ for (let i = 1; i <= 5; i++) {
     </div>
   `);
 }
-  }
+  
 
   const block = `
     <div style="display:flex;flex-direction:column;gap:20px;">
