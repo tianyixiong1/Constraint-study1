@@ -884,6 +884,7 @@ return `
     }).join("")}
   </div>
 `;
+}
 
 // 5 actions per scenario
 for (let i = 1; i <= 5; i++) {
