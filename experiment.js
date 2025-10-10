@@ -647,7 +647,7 @@ const scenarioStimuli = [
 
     {
     id: 13,
-    female_agent: "Diana is the ring bearer at her sister’s wedding. 10 minutes into the ceremony, she reaches into her pocket but the ring isn’t there. She realizes her left it on the seat next to her in the taxi.",
+    female_agent: "Diana is the ring bearer at her sister’s wedding. 10 minutes into the ceremony, she reaches into her pocket but the ring isn’t there. She realizes she left it on the seat next to her in the taxi.",
     male_agent: "Daniel is the ring bearer at his sister’s wedding. 10 minutes into the ceremony, he reaches into his pocket but the ring isn’t there. He realizes he left it on the seat next to him in the taxi.",
     context_2nd: "You are the ring bearer at your sister’s wedding. 10 minutes into the ceremony, you reach into your pocket but the ring isn’t there. You realize you left it on the seat next to you in the taxi.",
     female_name: "Diana",
