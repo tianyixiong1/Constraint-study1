@@ -445,10 +445,10 @@ const scenarioStimuli = [
     causal_m: "Brad caused his friends to remain lost.",
     causalcertain_f: "she and her friends were going to remain lost.",
     causalcertain_m: "he and his friends were going to remain lost.",
-    counter_m:"he wouldn't have gotten a zero for the assignment.",
-    counter_f: "she wouldn't have gotten a zero for the assignment.",
-    blame_f:"she and her friends wouldn't have remained lost.",
-    blame_m:"he and his friends wouldn't have remained lost."
+    counter_f:"she and her friends wouldn't have remained lost.",
+    counter_m:"he and his friends wouldn't have remained lost.",
+    blame_f:"Brooke should be blamed for his friends remaining lost.",
+    blame_m:"Brad should be blamed for his friends remaining lost."
   },
     
 
