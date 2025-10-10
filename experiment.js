@@ -665,7 +665,7 @@ const scenarioStimuli = [
       "call the taxi company",
       "run away",
       "steal someone else’s ring",
-      "tell her sister as soon as possible"],
+      "tell his sister as soon as possible"],
     outcome_f: "When her sister finds out her ring is missing, she is disappointed and decides to cancel the wedding.",
     outcome_m: "When his sister finds out her ring is missing, she is disappointed and decides to cancel the wedding.",
     causal_f: "Diana caused the wedding to be cancelled.",
