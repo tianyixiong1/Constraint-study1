@@ -447,7 +447,7 @@ const scenarioStimuli = [
     causalcertain_m: "he and his friends were going to remain lost.",
     counter_f:"she and her friends wouldn't have remained lost.",
     counter_m:"he and his friends wouldn't have remained lost.",
-    blame_f:"Brooke should be blamed for his friends remaining lost.",
+    blame_f:"Brooke should be blamed for her friends remaining lost.",
     blame_m:"Brad should be blamed for his friends remaining lost."
   },
     
@@ -537,8 +537,8 @@ const scenarioStimuli = [
       "ram into the car",
       "tailgate the car",
       "take a detour at the next exit"],
-    outcome_f: "After Emma does this, she drifting car crashes into another car, resulting in a pileup accident.",
-    outcome_m: "After Eamon does this, he drifting car crashes into another car, resulting in a pileup accident.",
+    outcome_f: "After Emma does this, the drifting car crashes into another car, resulting in a pileup accident.",
+    outcome_m: "After Eamon does this, the drifting car crashes into another car, resulting in a pileup accident.",
     causal_f: "Emma caused the accident.",
     causal_m: "Eamon caused the accident.",
     causalcertain_f: "the accident was going to occur.",
@@ -553,7 +553,7 @@ const scenarioStimuli = [
     female_agent: "Chloe is filling up her car at a gas station on her way home from work when a woman approaches her to ask for a ride to a nearby city. The city is in the same direction as her house but it’s 10 miles further than she planned to go.",
     male_agent: "Cameron is filling up his car at a gas station on his way home from work when a woman approaches him to ask for a ride to a nearby city. The city is in the same direction as his house but it’s 10 miles further than he planned to go.",
     context_2nd: "You are filling up your car at a gas station on your way home from work when a woman approaches you to ask for a ride to a nearby city. The city is in the same direction as your house but it’s 10 miles further than you planned to go.",
-    female_name: "Chole",
+    female_name: "Chloe",
     male_name: "Cameron",
     actions_f: [
       "call her a cab",
@@ -577,7 +577,7 @@ const scenarioStimuli = [
     causalcertain_m: "the woman was going to be late to her destination.",
     counter_m:"the woman wouldn't have been late to her destination.",
     counter_f: "the woman wouldn't have been late to her destination.",
-    blame_f:"Chole should be blamed for the woman being late to her destination.",
+    blame_f:"Chloe should be blamed for the woman being late to her destination.",
     blame_m:"Cameron should be blamed for the woman being late to her destination."},
 
     {
@@ -707,7 +707,7 @@ const scenarioStimuli = [
     causalcertain_m: "his father's condition was going to get worse.",
     counter_m:"his father's condition wouldn't have gotten worse.",
     counter_f: "her father's condition wouldn't have gotten worse.",
-    blame_f:"Andrea should be blamed for his father's condition getting worse.",
+    blame_f:"Andrea should be blamed for her father's condition getting worse.",
     blame_m:"Andy should be blamed for his father's condition getting worse."},
 
     {
@@ -831,7 +831,7 @@ const scenarioStimuli = [
     outcome_m: "When the competition judges find out what happened, they cancel the race and no one wins the prize money.",
     causal_f: "Shania caused the race to be cancelled.",
     causal_m: "Simon caused the race to be cancelled.",
-    causalcertain_f: "the race was going to be cancelled..",
+    causalcertain_f: "the race was going to be cancelled.",
     causalcertain_m: "the race was going to be cancelled.",
     counter_m:"the race wouldn't have been cancelled.",
     counter_f: "the race wouldn't have been cancelled.",
