@@ -411,7 +411,7 @@ const scenarioStimuli = [
 
     {
     id: 6,
-    female_agent: "Brooke and some friends are hiking through the mountains in the Canadian wilderness. A couple of days into their hike, Brad realizes that they are lost. She knows that a rescue crew could arrive before long, but it is extremely cold and they don’t have much food or water left.",
+    female_agent: "Brooke and some friends are hiking through the mountains in the Canadian wilderness. A couple of days into their hike, Brooke realizes that they are lost. She knows that a rescue crew could arrive before long, but it is extremely cold and they don’t have much food or water left.",
     male_agent: "Brad and some friends are hiking through the mountains in the Canadian wilderness. A couple of days into their hike, Brad realizes that they are lost. He knows that a rescue crew could arrive before long, but it is extremely cold and they don’t have much food or water left.",
     context_2nd: "You are hiking with some friends through the mountains in the Canadian wilderness. A couple of days into your hike, you realize that you are lost. You know that a rescue crew could arrive before long, but it is extremely cold and you don’t have much food or water left.",
     female_name: "Brooke",
