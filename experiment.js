@@ -388,7 +388,7 @@ const scenarioStimuli = [
   {
     id: 5,
     female_agent: "Mary is about to go to her final class of the day when she remembers that there is a homework assignment that is due. Mary’s mom accidentally took her homework assignment out of her backpack when she was making room for her lunch. Now Mary has nothing to turn in for credit.",
-    male_agent: "Mark is about to go to his final class of the day when he remembers that there is a homework assignment that is due. Mark’s mom accidentally took his homework assignment out of his backpack when he was making room for his lunch. Now Mary has nothing to turn in for credit.",
+    male_agent: "Mark is about to go to his final class of the day when he remembers that there is a homework assignment that is due. Mark’s mom accidentally took his homework assignment out of his backpack when he was making room for his lunch. Now Mark has nothing to turn in for credit.",
     context_2nd: "You are an elementary school student about to go to your final class of the day when you remember that there is a homework assignment that is due. Your mom accidentally took your homework assignment out of your backpack when she was making room for your lunch. Now you have nothing to turn in for credit.",
     female_name: "Mary",
     male_name: "Mark",
@@ -455,7 +455,7 @@ const scenarioStimuli = [
     {
     id: 7,
     female_agent: "Darya is on her way to a concert with her friends. As they approach the entrance her friend Ted realizes he forgot his ticket at his house. The concert is about to start and Ted would likely miss most of the concert if he returned to his house for his ticket.",
-    male_agent: "David is on his way to a concert with her friends. As they approach the entrance his friend Ted realizes he forgot his ticket at his house. The concert is about to start and Ted would likely miss most of the concert if he returned to his house for his ticket.",
+    male_agent: "David is on his way to a concert with his friends. As they approach the entrance his friend Ted realizes he forgot his ticket at his house. The concert is about to start and Ted would likely miss most of the concert if he returned to his house for his ticket.",
     context_2nd: "You are on your way to a concert with your friends. As you approach the entrance your friend Ted realizes he forgot his ticket at his house. The concert is about to start and Ted would likely miss most of the concert if he returns to his house for his ticket.",
     female_name: "Darya",
     male_name: "David",
@@ -559,7 +559,7 @@ const scenarioStimuli = [
       "call her a cab",
       "refuse to drive her",
       "steal whatever she has on her",
-      "take her to his house but no further",
+      "take her to her house but no further",
       "turn invisible",
       "yell in gibberish until she leaves"],
     actions_m: [
@@ -701,7 +701,7 @@ const scenarioStimuli = [
     ],
     outcome_f: "After Andrea does this, her father’s mental and physical health quickly deteriorates.",
     outcome_m: "After Andy does this, his father’s mental and physical health quickly deteriorates.",
-    causal_f: "Andrea caused his father's condition to get worse.",
+    causal_f: "Andrea caused her father's condition to get worse.",
     causal_m: "Andy caused his father's condition to get worse.",
     causalcertain_f: "her father's condition was going to get worse.",
     causalcertain_m: "his father's condition was going to get worse.",
@@ -733,13 +733,13 @@ const scenarioStimuli = [
       "throw disobedient passengers off the boat"],
     outcome_f: "After Amanda tries this, several passengers suffer injuries from heatstroke and dehydration.",
     outcome_m: "After Ahmed tries this, several passengers suffer injuries from heatstroke and dehydration.",
-    causal_f: "Amanda caused his passengers' injuries.",
+    causal_f: "Amanda caused her passengers' injuries.",
     causal_m: "Ahmed caused his passengers' injuries.",
     causalcertain_f: "the passengers were going to suffer injuries.",
     causalcertain_m: "the passengers were going to suffer injuries.",
     counter_m:"the passengers wouldn't have suffered injuries.",
     counter_f: "the passengers wouldn't have suffered injuries.",
-    blame_f:"Amanda should be blamed for his passengers' injuries.",
+    blame_f:"Amanda should be blamed for her passengers' injuries.",
     blame_m:"Ahmed should be blamed for his passengers' injuries."},
 
     {
@@ -833,7 +833,7 @@ const scenarioStimuli = [
     causal_m: "Simon caused the race to be cancelled.",
     causalcertain_f: "the race was going to be cancelled..",
     causalcertain_m: "the race was going to be cancelled.",
-    ounter_m:"the race wouldn't have been cancelled.",
+    counter_m:"the race wouldn't have been cancelled.",
     counter_f: "the race wouldn't have been cancelled.",
     blame_f:"Shania should be blamed for the race being cancelled.",
     blame_m:"Simon should be blamed for the race being cancelled."}
