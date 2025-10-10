@@ -254,7 +254,7 @@ const attention_scale = [
 ];
 
 
-// Scenario Stimuli Updated Oct 3
+// Scenario Stimuli Updated Oct 10
 const scenarioStimuli = [
   { 
     id: 1,
