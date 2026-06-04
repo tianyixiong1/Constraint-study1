@@ -864,7 +864,7 @@ const save_data = {
 
      jsPsych.endExperiment(
       `<p class="jspsych-center">
-         Thanks for participating! You will be redirected in <span id="countdown">5</span> second </p>
+         Thanks for participating! You will be redirected in <span id="countdown">5</span> seconds </p>
          <p> DO NOT CLOSE OUT OF THIS PAGE BEFORE YOU ARE REDIRECTED.
        </p>`
      );
