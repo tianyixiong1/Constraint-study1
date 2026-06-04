@@ -485,26 +485,47 @@ for (let i = 1; i <= 5; i++) {
 
       <!-- Probable -->
       <div style="margin:55px auto 45px auto; max-width:650px;">
-        <p style="margin-bottom:10px;">How probable is it that ${agentName} will do that thing?</p>
-        ${makeTopScale("prob")}
-        <input type="range" name="prob_${scenario.id}_${i}" min="0" max="100" step="1" value="50"
-          style="width:100%; margin-top:8px;">
+        <p style="margin-bottom:10px;">How probable is it that ${agentName} will perform this action?</p>
+        <div style="display:flex; align-items:flex-start;">
+          <div style="flex:1;">${makeTopScale("prob")}</div>
+          <span style="flex:none; width:3.5em;"></span>
+        </div>
+        <div style="display:flex; align-items:center; margin-top:8px;">
+          <input type="range" name="prob_${scenario.id}_${i}" min="0" max="100" step="1" value="50"
+            style="flex:1;"
+            oninput="document.getElementById('probval_${scenario.id}_${i}').textContent = this.value;">
+          <span id="probval_${scenario.id}_${i}" style="flex:none; width:3.5em; text-align:center; font-size:16px; font-weight:bold;">50</span>
+        </div>
       </div>
 
       <!-- Moral -->
       <div style="margin:40px auto 45px auto; max-width:650px;">
-        <p style="margin-bottom:10px;">How morally acceptable would it be for ${agentName} to do that thing?</p>
-        ${makeTopScale("moral")}
-        <input type="range" name="moral_${scenario.id}_${i}" min="0" max="100" step="1" value="50"
-          style="width:100%; margin-top:8px;">
+        <p style="margin-bottom:10px;">How morally acceptable would it be for ${agentName} to perform this action?</p>
+        <div style="display:flex; align-items:flex-start;">
+          <div style="flex:1;">${makeTopScale("moral")}</div>
+          <span style="flex:none; width:3.5em;"></span>
+        </div>
+        <div style="display:flex; align-items:center; margin-top:8px;">
+          <input type="range" name="moral_${scenario.id}_${i}" min="0" max="100" step="1" value="50"
+            style="flex:1;"
+            oninput="document.getElementById('moralval_${scenario.id}_${i}').textContent = this.value;">
+          <span id="moralval_${scenario.id}_${i}" style="flex:none; width:3.5em; text-align:center; font-size:16px; font-weight:bold;">50</span>
+        </div>
       </div>
 
       <!-- Normal -->
       <div style="margin:40px auto 45px auto; max-width:650px;">
-        <p style="margin-bottom:10px;">How normal would it be if ${agentName} did that thing?</p>
-        ${makeTopScale("norm")}
-        <input type="range" name="norm_${scenario.id}_${i}" min="0" max="100" step="1" value="50"
-          style="width:100%; margin-top:8px;">
+        <p style="margin-bottom:10px;">How normal would it be if ${agentName} performed this action?</p>
+        <div style="display:flex; align-items:flex-start;">
+          <div style="flex:1;">${makeTopScale("norm")}</div>
+          <span style="flex:none; width:3.5em;"></span>
+        </div>
+        <div style="display:flex; align-items:center; margin-top:8px;">
+          <input type="range" name="norm_${scenario.id}_${i}" min="0" max="100" step="1" value="50"
+            style="flex:1;"
+            oninput="document.getElementById('normval_${scenario.id}_${i}').textContent = this.value;">
+          <span id="normval_${scenario.id}_${i}" style="flex:none; width:3.5em; text-align:center; font-size:16px; font-weight:bold;">50</span>
+        </div>
       </div>
     </div>
   `);
@@ -519,7 +540,7 @@ for (let i = 1; i <= 5; i++) {
   trials.push({
     type: jsPsychSurveyHtmlForm,
     preamble: `
-      <div style="text-align:left;">
+      <div style="text-align:left; max-width:650px; margin:0 auto;">
         <p>${scenarioText}</p>
         <p><strong>In this situation, what are some things you believe ${agentName} could do? Please list 5 actions and then answer the following questions.</strong></p>
       </div>
