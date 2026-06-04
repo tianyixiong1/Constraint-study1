@@ -251,7 +251,7 @@ const attention_scale = [
   "7 = Yes, I paid full attention. You should use my data",
 ];
 
-// Scenario Stimuli Updated Jun 4, 2026
+// Scenario Stimuli Updated June 4, 2026
 const scenarioStimuli = [
   { 
     id: 1,
@@ -439,6 +439,46 @@ const topScale = `
 
 const trials = [];
 
+// Force a response on every slider before the participant can continue -- added Oct 11
+function forceSliderResponse() {
+  const form = document.querySelector('#jspsych-survey-html-form');
+  if (!form) return;
+  const btn = form.querySelector('#jspsych-survey-html-form-next')
+    || form.querySelector('input[type="submit"], button[type="submit"]');
+  if (!btn) return;
+
+  // Warning shown when sliders are missing
+  let warn = document.createElement('p');
+  warn.id = 'slider-warning';
+  warn.style.color = 'red';
+  warn.style.fontWeight = 'bold';
+  warn.style.marginTop = '10px';
+  warn.style.display = 'none';
+  warn.textContent = 'Please respond to every slider before continuing.';
+  btn.parentNode.insertBefore(warn, btn);
+
+  // Capture-phase click handler so it runs before jsPsych's submit handler
+  btn.addEventListener('click', function (e) {
+    const sliders = form.querySelectorAll('input.force-slider');
+    let allTouched = true;
+    sliders.forEach(function (s) {
+      if (s.dataset.touched !== '1') {
+        allTouched = false;
+        s.style.outline = '2px solid red';
+      } else {
+        s.style.outline = '';
+      }
+    });
+    if (!allTouched) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      warn.style.display = 'block';
+    } else {
+      warn.style.display = 'none';
+    }
+  }, true);
+}
+
 chosenGroup.forEach((scenario, sIdx) => {
   const genderKey = genderOrder[sIdx];
   const scenarioText = scenario[genderKey];
@@ -491,10 +531,10 @@ for (let i = 1; i <= 5; i++) {
           <span style="flex:none; width:3.5em;"></span>
         </div>
         <div style="display:flex; align-items:center; margin-top:8px;">
-          <input type="range" name="prob_${scenario.id}_${i}" min="0" max="100" step="1" value="50"
-            style="flex:1;"
-            oninput="document.getElementById('probval_${scenario.id}_${i}').textContent = this.value;">
-          <span id="probval_${scenario.id}_${i}" style="flex:none; width:3.5em; text-align:center; font-size:16px; font-weight:bold;">50</span>
+          <input type="range" name="prob_${scenario.id}_${i}" min="0" max="100" step="1" value="50" data-touched="0"
+            class="force-slider" style="flex:1;"
+            oninput="this.dataset.touched='1'; this.style.outline=''; document.getElementById('probval_${scenario.id}_${i}').textContent = this.value;">
+          <span id="probval_${scenario.id}_${i}" style="flex:none; width:3.5em; text-align:center; font-size:16px; font-weight:bold;"></span>
         </div>
       </div>
 
@@ -506,10 +546,10 @@ for (let i = 1; i <= 5; i++) {
           <span style="flex:none; width:3.5em;"></span>
         </div>
         <div style="display:flex; align-items:center; margin-top:8px;">
-          <input type="range" name="moral_${scenario.id}_${i}" min="0" max="100" step="1" value="50"
-            style="flex:1;"
-            oninput="document.getElementById('moralval_${scenario.id}_${i}').textContent = this.value;">
-          <span id="moralval_${scenario.id}_${i}" style="flex:none; width:3.5em; text-align:center; font-size:16px; font-weight:bold;">50</span>
+          <input type="range" name="moral_${scenario.id}_${i}" min="0" max="100" step="1" value="50" data-touched="0"
+            class="force-slider" style="flex:1;"
+            oninput="this.dataset.touched='1'; this.style.outline=''; document.getElementById('moralval_${scenario.id}_${i}').textContent = this.value;">
+          <span id="moralval_${scenario.id}_${i}" style="flex:none; width:3.5em; text-align:center; font-size:16px; font-weight:bold;"></span>
         </div>
       </div>
 
@@ -521,10 +561,10 @@ for (let i = 1; i <= 5; i++) {
           <span style="flex:none; width:3.5em;"></span>
         </div>
         <div style="display:flex; align-items:center; margin-top:8px;">
-          <input type="range" name="norm_${scenario.id}_${i}" min="0" max="100" step="1" value="50"
-            style="flex:1;"
-            oninput="document.getElementById('normval_${scenario.id}_${i}').textContent = this.value;">
-          <span id="normval_${scenario.id}_${i}" style="flex:none; width:3.5em; text-align:center; font-size:16px; font-weight:bold;">50</span>
+          <input type="range" name="norm_${scenario.id}_${i}" min="0" max="100" step="1" value="50" data-touched="0"
+            class="force-slider" style="flex:1;"
+            oninput="this.dataset.touched='1'; this.style.outline=''; document.getElementById('normval_${scenario.id}_${i}').textContent = this.value;">
+          <span id="normval_${scenario.id}_${i}" style="flex:none; width:3.5em; text-align:center; font-size:16px; font-weight:bold;"></span>
         </div>
       </div>
     </div>
@@ -548,6 +588,7 @@ for (let i = 1; i <= 5; i++) {
     html: block,
     button_label: "Continue",
     data: { scenario_id: scenario.id, gender: genderKey, agent: agentName },
+    on_load: forceSliderResponse,
     on_finish: expandResponse
   });
 });
