@@ -439,44 +439,32 @@ const topScale = `
 
 const trials = [];
 
-// Force a response on every slider before the participant can continue -- added Oct 11
+// Force a response on every slider before the participant can continue --
+// mirrors Study 2: disable the Next button until all sliders are moved, reveal each box on input
 function forceSliderResponse() {
   const form = document.querySelector('#jspsych-survey-html-form');
+  const nextBtn = document.querySelector('#jspsych-survey-html-form-next') ||
+                  document.querySelector('.jspsych-btn');
+  if (nextBtn) nextBtn.disabled = true;
   if (!form) return;
-  const btn = form.querySelector('#jspsych-survey-html-form-next')
-    || form.querySelector('input[type="submit"], button[type="submit"]');
-  if (!btn) return;
 
-  // Warning shown when sliders are missing
-  let warn = document.createElement('p');
-  warn.id = 'slider-warning';
-  warn.style.color = 'red';
-  warn.style.fontWeight = 'bold';
-  warn.style.marginTop = '10px';
-  warn.style.display = 'none';
-  warn.textContent = 'Please respond to every slider before continuing.';
-  btn.parentNode.insertBefore(warn, btn);
+  const sliders = form.querySelectorAll('input[type="range"]');
+  const status = {};
+  sliders.forEach(s => { status[s.name] = false; });
 
-  // Capture-phase click handler so it runs before jsPsych's submit handler
-  btn.addEventListener('click', function (e) {
-    const sliders = form.querySelectorAll('input.force-slider');
-    let allTouched = true;
-    sliders.forEach(function (s) {
-      if (s.dataset.touched !== '1') {
-        allTouched = false;
-        s.style.outline = '2px solid red';
-      } else {
-        s.style.outline = '';
+  sliders.forEach(slider => {
+    const box = document.getElementById(slider.dataset.box);
+    slider.addEventListener('input', function () {
+      if (box) {
+        box.innerText = this.value;
+        box.style.color       = '#000000';
+        box.style.background  = '#e6f7ff';
+        box.style.borderColor = '#1890ff';
       }
+      status[this.name] = true;
+      if (Object.values(status).every(v => v) && nextBtn) nextBtn.disabled = false;
     });
-    if (!allTouched) {
-      e.preventDefault();
-      e.stopImmediatePropagation();
-      warn.style.display = 'block';
-    } else {
-      warn.style.display = 'none';
-    }
-  }, true);
+  });
 }
 
 chosenGroup.forEach((scenario, sIdx) => {
@@ -524,44 +512,47 @@ for (let i = 1; i <= 5; i++) {
         required></textarea>
 
       <!-- Probable -->
-      <div style="margin:55px auto 45px auto; max-width:650px;">
-        <p style="margin-bottom:16px;">How probable is it that ${agentName} will perform this action?</p>
+      <div style="margin:70px auto; max-width:700px;">
+        <div style="display:flex; align-items:center; gap:20px; margin-bottom:16px;">
+          <p style="flex-grow:1; text-align:center; margin:0;">How probable is it that ${agentName} will perform this action?</p>
+          <div style="flex-shrink:0; width:50px;"></div>
+        </div>
         <div style="display:flex; align-items:center; justify-content:space-between; gap:20px;">
           <div style="flex-grow:1;">
             ${makeTopScale("prob")}
-            <input type="range" name="prob_${scenario.id}_${i}" min="0" max="100" step="1" value="50" data-touched="0"
-              class="force-slider" style="width:100%; margin-top:12px;"
-              oninput="this.dataset.touched='1'; this.style.outline=''; var b=document.getElementById('probval_${scenario.id}_${i}'); b.textContent=this.value; b.style.color='#000'; b.style.background='#e6f7ff'; b.style.borderColor='#1890ff';">
+            <input type="range" name="prob_${scenario.id}_${i}" data-box="probval_${scenario.id}_${i}" min="0" max="100" step="1" value="50" style="width:100%; margin-top:12px;">
           </div>
-          <div id="probval_${scenario.id}_${i}" style="flex-shrink:0; width:50px; height:32px; line-height:32px; text-align:center; font-weight:bold; border:1px solid #ccc; border-radius:4px; background:#f5f5f5; color:transparent;">50</div>
+          <div id="probval_${scenario.id}_${i}" style="flex-shrink:0; width:50px; height:32px; line-height:32px; border:1px solid #ccc; border-radius:4px; background:#f5f5f5; color:transparent;">50</div>
         </div>
       </div>
 
       <!-- Moral -->
-      <div style="margin:40px auto 45px auto; max-width:650px;">
-        <p style="margin-bottom:16px;">How morally acceptable would it be for ${agentName} to perform this action?</p>
+      <div style="margin:70px auto; max-width:700px;">
+        <div style="display:flex; align-items:center; gap:20px; margin-bottom:16px;">
+          <p style="flex-grow:1; text-align:center; margin:0;">How morally acceptable would it be for ${agentName} to perform this action?</p>
+          <div style="flex-shrink:0; width:50px;"></div>
+        </div>
         <div style="display:flex; align-items:center; justify-content:space-between; gap:20px;">
           <div style="flex-grow:1;">
             ${makeTopScale("moral")}
-            <input type="range" name="moral_${scenario.id}_${i}" min="0" max="100" step="1" value="50" data-touched="0"
-              class="force-slider" style="width:100%; margin-top:12px;"
-              oninput="this.dataset.touched='1'; this.style.outline=''; var b=document.getElementById('moralval_${scenario.id}_${i}'); b.textContent=this.value; b.style.color='#000'; b.style.background='#e6f7ff'; b.style.borderColor='#1890ff';">
+            <input type="range" name="moral_${scenario.id}_${i}" data-box="moralval_${scenario.id}_${i}" min="0" max="100" step="1" value="50" style="width:100%; margin-top:12px;">
           </div>
-          <div id="moralval_${scenario.id}_${i}" style="flex-shrink:0; width:50px; height:32px; line-height:32px; text-align:center; font-weight:bold; border:1px solid #ccc; border-radius:4px; background:#f5f5f5; color:transparent;">50</div>
+          <div id="moralval_${scenario.id}_${i}" style="flex-shrink:0; width:50px; height:32px; line-height:32px; border:1px solid #ccc; border-radius:4px; background:#f5f5f5; color:transparent;">50</div>
         </div>
       </div>
 
       <!-- Normal -->
-      <div style="margin:40px auto 45px auto; max-width:650px;">
-        <p style="margin-bottom:16px;">How normal would it be if ${agentName} performed this action?</p>
+      <div style="margin:70px auto; max-width:700px;">
+        <div style="display:flex; align-items:center; gap:20px; margin-bottom:16px;">
+          <p style="flex-grow:1; text-align:center; margin:0;">How normal would it be if ${agentName} performed this action?</p>
+          <div style="flex-shrink:0; width:50px;"></div>
+        </div>
         <div style="display:flex; align-items:center; justify-content:space-between; gap:20px;">
           <div style="flex-grow:1;">
             ${makeTopScale("norm")}
-            <input type="range" name="norm_${scenario.id}_${i}" min="0" max="100" step="1" value="50" data-touched="0"
-              class="force-slider" style="width:100%; margin-top:12px;"
-              oninput="this.dataset.touched='1'; this.style.outline=''; var b=document.getElementById('normval_${scenario.id}_${i}'); b.textContent=this.value; b.style.color='#000'; b.style.background='#e6f7ff'; b.style.borderColor='#1890ff';">
+            <input type="range" name="norm_${scenario.id}_${i}" data-box="normval_${scenario.id}_${i}" min="0" max="100" step="1" value="50" style="width:100%; margin-top:12px;">
           </div>
-          <div id="normval_${scenario.id}_${i}" style="flex-shrink:0; width:50px; height:32px; line-height:32px; text-align:center; font-weight:bold; border:1px solid #ccc; border-radius:4px; background:#f5f5f5; color:transparent;">50</div>
+          <div id="normval_${scenario.id}_${i}" style="flex-shrink:0; width:50px; height:32px; line-height:32px; border:1px solid #ccc; border-radius:4px; background:#f5f5f5; color:transparent;">50</div>
         </div>
       </div>
     </div>
