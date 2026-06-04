@@ -525,46 +525,43 @@ for (let i = 1; i <= 5; i++) {
 
       <!-- Probable -->
       <div style="margin:55px auto 45px auto; max-width:650px;">
-        <p style="margin-bottom:10px;">How probable is it that ${agentName} will perform this action?</p>
-        <div style="display:flex; align-items:flex-start;">
-          <div style="flex:1;">${makeTopScale("prob")}</div>
-          <span style="flex:none; width:3.5em;"></span>
-        </div>
-        <div style="display:flex; align-items:center; margin-top:8px;">
-          <input type="range" name="prob_${scenario.id}_${i}" min="0" max="100" step="1" value="50" data-touched="0"
-            class="force-slider" style="flex:1;"
-            oninput="this.dataset.touched='1'; this.style.outline=''; document.getElementById('probval_${scenario.id}_${i}').textContent = this.value;">
-          <span id="probval_${scenario.id}_${i}" style="flex:none; width:3.5em; text-align:center; font-size:16px; font-weight:bold;"></span>
+        <p style="margin-bottom:16px;">How probable is it that ${agentName} will perform this action?</p>
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:20px;">
+          <div style="flex-grow:1;">
+            ${makeTopScale("prob")}
+            <input type="range" name="prob_${scenario.id}_${i}" min="0" max="100" step="1" value="50" data-touched="0"
+              class="force-slider" style="width:100%; margin-top:12px;"
+              oninput="this.dataset.touched='1'; this.style.outline=''; var b=document.getElementById('probval_${scenario.id}_${i}'); b.textContent=this.value; b.style.color='#000'; b.style.background='#e6f7ff'; b.style.borderColor='#1890ff';">
+          </div>
+          <div id="probval_${scenario.id}_${i}" style="flex-shrink:0; width:50px; height:32px; line-height:32px; text-align:center; font-weight:bold; border:1px solid #ccc; border-radius:4px; background:#f5f5f5; color:transparent;">50</div>
         </div>
       </div>
 
       <!-- Moral -->
       <div style="margin:40px auto 45px auto; max-width:650px;">
-        <p style="margin-bottom:10px;">How morally acceptable would it be for ${agentName} to perform this action?</p>
-        <div style="display:flex; align-items:flex-start;">
-          <div style="flex:1;">${makeTopScale("moral")}</div>
-          <span style="flex:none; width:3.5em;"></span>
-        </div>
-        <div style="display:flex; align-items:center; margin-top:8px;">
-          <input type="range" name="moral_${scenario.id}_${i}" min="0" max="100" step="1" value="50" data-touched="0"
-            class="force-slider" style="flex:1;"
-            oninput="this.dataset.touched='1'; this.style.outline=''; document.getElementById('moralval_${scenario.id}_${i}').textContent = this.value;">
-          <span id="moralval_${scenario.id}_${i}" style="flex:none; width:3.5em; text-align:center; font-size:16px; font-weight:bold;"></span>
+        <p style="margin-bottom:16px;">How morally acceptable would it be for ${agentName} to perform this action?</p>
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:20px;">
+          <div style="flex-grow:1;">
+            ${makeTopScale("moral")}
+            <input type="range" name="moral_${scenario.id}_${i}" min="0" max="100" step="1" value="50" data-touched="0"
+              class="force-slider" style="width:100%; margin-top:12px;"
+              oninput="this.dataset.touched='1'; this.style.outline=''; var b=document.getElementById('moralval_${scenario.id}_${i}'); b.textContent=this.value; b.style.color='#000'; b.style.background='#e6f7ff'; b.style.borderColor='#1890ff';">
+          </div>
+          <div id="moralval_${scenario.id}_${i}" style="flex-shrink:0; width:50px; height:32px; line-height:32px; text-align:center; font-weight:bold; border:1px solid #ccc; border-radius:4px; background:#f5f5f5; color:transparent;">50</div>
         </div>
       </div>
 
       <!-- Normal -->
       <div style="margin:40px auto 45px auto; max-width:650px;">
-        <p style="margin-bottom:10px;">How normal would it be if ${agentName} performed this action?</p>
-        <div style="display:flex; align-items:flex-start;">
-          <div style="flex:1;">${makeTopScale("norm")}</div>
-          <span style="flex:none; width:3.5em;"></span>
-        </div>
-        <div style="display:flex; align-items:center; margin-top:8px;">
-          <input type="range" name="norm_${scenario.id}_${i}" min="0" max="100" step="1" value="50" data-touched="0"
-            class="force-slider" style="flex:1;"
-            oninput="this.dataset.touched='1'; this.style.outline=''; document.getElementById('normval_${scenario.id}_${i}').textContent = this.value;">
-          <span id="normval_${scenario.id}_${i}" style="flex:none; width:3.5em; text-align:center; font-size:16px; font-weight:bold;"></span>
+        <p style="margin-bottom:16px;">How normal would it be if ${agentName} performed this action?</p>
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:20px;">
+          <div style="flex-grow:1;">
+            ${makeTopScale("norm")}
+            <input type="range" name="norm_${scenario.id}_${i}" min="0" max="100" step="1" value="50" data-touched="0"
+              class="force-slider" style="width:100%; margin-top:12px;"
+              oninput="this.dataset.touched='1'; this.style.outline=''; var b=document.getElementById('normval_${scenario.id}_${i}'); b.textContent=this.value; b.style.color='#000'; b.style.background='#e6f7ff'; b.style.borderColor='#1890ff';">
+          </div>
+          <div id="normval_${scenario.id}_${i}" style="flex-shrink:0; width:50px; height:32px; line-height:32px; text-align:center; font-weight:bold; border:1px solid #ccc; border-radius:4px; background:#f5f5f5; color:transparent;">50</div>
         </div>
       </div>
     </div>
