@@ -448,12 +448,12 @@ trials.push({
 // from Glick & Fiske (1996) ASI Appendix
 // =============================================
 const bsiScale = [
-  "0 = Disagree strongly",
-  "1 = Disagree somewhat",
-  "2 = Disagree slightly",
-  "3 = Agree slightly",
-  "4 = Agree somewhat",
-  "5 = Agree strongly"
+  "Disagree strongly",
+  "Disagree somewhat",
+  "Disagree slightly",
+  "Agree slightly",
+  "Agree somewhat",
+  "Agree strongly"
 ];
 
 const bsiItems = {
@@ -829,7 +829,7 @@ const politicsQuestions = {
 const save_data = {
    type: jsPsychPipe,
    action: "save",
-   experiment_id: "RwGe88QVSAf6", //updated as of June 21
+   experiment_id: "RwGe88QVSAf6", //updated as of June 20
    filename: filename,
    data_string: () => jsPsych.data.get().csv(),
    on_finish: function (data) {
