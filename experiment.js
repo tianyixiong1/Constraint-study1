@@ -86,7 +86,7 @@ const consentForm = {
       name: 'consent',
       prompt: `
         <div style="text-align:left; max-width:800px; margin:auto;">
-          <p>We are asking you to participate in a research study titled <em>“Social Judgment and Decision-Making”</em>. 
+          <p>We are asking you to participate in a research study titled <em>"Social Judgment and Decision-Making"</em>. 
           We will describe this study to you and answer any of your questions. This form has information to help you decide 
           whether or not you wish to participate – please review it carefully. Your participation is voluntary. This study is 
           being led by Professor Jordan Wylie, Department of Psychology.</p>
@@ -156,7 +156,7 @@ const consentForm = {
           <p>I have read the above information, and have received answers to any questions I asked. I consent to take part 
           in the study.</p>
           
-          <p>If you agree to the statements above and agree to participate, please select the “I approve” option below. 
+          <p>If you agree to the statements above and agree to participate, please select the "I approve" option below. 
           Otherwise, please select "I DO NOT approve" option and exit the study at this time.</p>
         </div>
       `,
@@ -251,13 +251,15 @@ const attention_scale = [
   "7 = Yes, I paid full attention. You should use my data",
 ];
 
-// Scenario Stimuli Updated June 4, 2026
+// =============================================
+// Scenario Stimuli -- ONLY Scenario 1 retained
+// =============================================
 const scenarioStimuli = [
   { 
     id: 1,
-    female_agent: "Hillary’s husband has recently fallen ill and needs an expensive medication that is not covered by his medical insurance. They don’t have the money needed to purchase the expensive prescription, but they know that it’s vital for him to have it if he is going to recover.",
-    male_agent: "Henry’s wife has recently fallen ill and needs an expensive medication that is not covered by her medical insurance. They don’t have the money needed to purchase the expensive prescription, but they know that it’s vital for her to have it if she is going to recover.",
-    context_2nd: "Your spouse has recently fallen ill and needs an expensive medication that is not covered by your medical insurance. You don’t have the money needed to purchase the expensive prescription, but you know that it’s vital for them to have it if they are going to recover.",
+    female_agent: "Hillary's husband has recently fallen ill and needs an expensive medication that is not covered by his medical insurance. They don't have the money needed to purchase the expensive prescription, but they know that it's vital for him to have it if he is going to recover.",
+    male_agent: "Henry's wife has recently fallen ill and needs an expensive medication that is not covered by her medical insurance. They don't have the money needed to purchase the expensive prescription, but they know that it's vital for her to have it if she is going to recover.",
+    context_2nd: "Your spouse has recently fallen ill and needs an expensive medication that is not covered by your medical insurance. You don't have the money needed to purchase the expensive prescription, but you know that it's vital for them to have it if they are going to recover.",
     female_name: "Hillary",
     male_name: "Henry",
     actions_f: [
@@ -284,147 +286,13 @@ const scenarioStimuli = [
     counter_f: "her husband wouldn't have gotten more ill.",
     blame_f:"Hillary should be blamed for her husband getting sicker.",
     blame_m:"Henry should be blamed for his wife getting sicker."
-  },
-
-    {
-    id: 6,
-    female_agent: "Brooke and some friends are hiking through the mountains in the Canadian wilderness. A couple of days into their hike, Brooke realizes that they are lost. She knows that a rescue crew could arrive before long, but it is extremely cold and they don’t have much food or water left.",
-    male_agent: "Brad and some friends are hiking through the mountains in the Canadian wilderness. A couple of days into their hike, Brad realizes that they are lost. He knows that a rescue crew could arrive before long, but it is extremely cold and they don’t have much food or water left.",
-    context_2nd: "You are hiking with some friends through the mountains in the Canadian wilderness. A couple of days into your hike, you realize that you are lost. You know that a rescue crew could arrive before long, but it is extremely cold and you don’t have much food or water left.",
-    female_name: "Brooke",
-    male_name: "Brad",
-    actions_f: [
-      "boost morale with a three-legged race",
-      "collect wood to start a fire",
-      "huddle to conserve energy",
-      "search for a water source",
-      "steal all of the food and water",
-      "throw away all of the food"],
-    actions_m: [
-      "boost morale with a three-legged race",
-      "collect wood to start a fire",
-      "huddle to conserve energy",
-      "search for a water source",
-      "steal all of the food and water",
-      "throw away all of the food" ],
-    outcome_f: "After Brooke does this, she and her friends spend several days lost in the woods, cold, hungry, and thirsty.",
-    outcome_m: "After Brad does this, he and his friends spend several days lost in the woods, cold, hungry, and thirsty.",
-    causal_f: "Brooke caused her friends to remain lost.",
-    causal_m: "Brad caused his friends to remain lost.",
-    causalcertain_f: "she and her friends were going to remain lost.",
-    causalcertain_m: "he and his friends were going to remain lost.",
-    counter_f:"she and her friends wouldn't have remained lost.",
-    counter_m:"he and his friends wouldn't have remained lost.",
-    blame_f:"Brooke should be blamed for her friends remaining lost.",
-    blame_m:"Brad should be blamed for his friends remaining lost."
-  },
-
-    {
-    id: 10,
-    female_agent: "Chloe is filling up her car at a gas station on her way home from work when a woman approaches her to ask for a ride to a nearby city. The city is in the same direction as her house but it’s 10 miles further than she planned to go.",
-    male_agent: "Colin is filling up his car at a gas station on his way home from work when a woman approaches him to ask for a ride to a nearby city. The city is in the same direction as his house but it’s 10 miles further than he planned to go.",
-    context_2nd: "You are filling up your car at a gas station on your way home from work when a woman approaches you to ask for a ride to a nearby city. The city is in the same direction as your house but it’s 10 miles further than you planned to go.",
-    female_name: "Chloe",
-    male_name: "Colin",
-    actions_f: [
-      "call her a cab",
-      "refuse to drive her",
-      "steal whatever she has on her",
-      "take her to her house but no further",
-      "turn invisible",
-      "yell in gibberish until she leaves"],
-    actions_m: [
-      "call her a cab",
-      "refuse to drive her",
-      "steal whatever she has on her",
-      "take her to his house but no further",
-      "turn invisible",
-      "yell in gibberish until she leaves"],
-    outcome_f: "After Chloe tries to do this, the woman attempts to walk all the way to her destination. As a result, the woman is late.",
-    outcome_m: "After Colin tries to do this, the woman attempts to walk all the way to her destination. As a result, the woman is late.",
-    causal_f: "Chloe caused the woman to be late to her destination.",
-    causal_m: "Colin caused the woman to be late to her destination.",
-    causalcertain_f: "the woman was going to be late to her destination.",
-    causalcertain_m: "the woman was going to be late to her destination.",
-    counter_m:"the woman wouldn't have been late to her destination.",
-    counter_f: "the woman wouldn't have been late to her destination.",
-    blame_f:"Chloe should be blamed for the woman being late to her destination.",
-    blame_m:"Colin should be blamed for the woman being late to her destination."},
-
-    {
-    id: 11,
-    female_agent: "Erica is leaving the mall on a hot summer day. In the parking lot, she notices a dog in the back of a car without any of its windows open. The dog is panting heavily and looks tired.",
-    male_agent: "Eric is leaving the mall on a hot summer day. In the parking lot, he notices a dog in the back of a car without any of its windows open. The dog is panting heavily and looks tired.",
-    female_name: "Erica",
-    male_name: "Eric",
-    context_2nd: "You are leaving the mall on a hot summer day. In the parking lot, you notice a dog in the back of a car without any of its windows open. The dog is panting heavily and looks tired.",
-    
-    actions_f: [
-      "ask to use the mall's loudspeaker",
-      "call emergency services",
-      "check that the doors are locked	",
-      "light a fire under the car",
-      "pour water on the car to cool it",
-      "slash the tires"],
-    actions_m: [
-      "ask to use the mall's loudspeaker",
-      "call emergency services",
-      "check that the doors are locked	",
-      "light a fire under the car",
-      "pour water on the car to cool it",
-      "slash the tires"],
-    outcome_f: "The dog dies inside the car before anyone else arrives to help.",
-    outcome_m: "The dog dies inside the car before anyone else arrives to help.",
-    causal_f: "Erica caused the dog to die.",
-    causal_m: "Eric caused the dog to die.",
-    causalcertain_f: "the dog was going to die.",
-    causalcertain_m: "the dog was going to die.",
-    counter_m:"the dog wouldn't have died.",
-    counter_f: "the dog wouldn't have died.",
-    blame_f:"Erica should be blamed for the dog dying.",
-    blame_m:"Eric should be blamed for the dog dying."},
-
-    {
-    id: 17,
-    female_agent: "Jessica works the night shift at a 24/7 convenience store. Every day at 7am the owner of the store, Jessica's boss, takes over for the morning shift. Today, Jessica has an important court appointment at 8am but her boss hasn't shown up yet and isn't returning her calls.",
-    male_agent: "Jeff works the night shift at a 24/7 convenience store. Every day at 7am the owner of the store, Jeff's boss, takes over for the morning shift. Today, Jeff has an important court appointment at 8am but his boss hasn't shown up yet and isn't returning his calls.",
-    context_2nd: "You work the night shift at a 24/7 convenience store. Every day at 7am the owner of the store, your boss, takes over for the morning shift. Today, you have an important court appointment at 8am but your boss hasn't shown up yet and isn't returning his calls.",
-    female_name: "Jessica",
-    male_name: "Jeff",
-    actions_f: [
-      "ask a friend to take over",
-      "call her lawyer",
-      "leave the store unattended",
-      "lock up the store",
-      "stage a break-in at the store",
-      "tell her lawyer that she’s sick"],
-    actions_m: [
-      "ask a friend to take over",
-      "call his lawyer",
-      "leave the store unattended",
-      "lock up the store",
-      "stage a break-in at the store",
-      "tell his lawyer that he’s sick"],
-    outcome_f: "After the owner returns, she fires her.",
-    outcome_m: "After the owner returns, she fires him.",
-    causal_f: "Jessica caused herself to be fired.",
-    causal_m: "Jeff caused himself to be fired.",
-    causalcertain_f: "she was going get fired.",
-    causalcertain_m: "he was going get fired.",
-    counter_m:"he wouldn't have gotten fired.",
-    counter_f: "she wouldn't have gotten fired.",
-    blame_f:"Jessica should be blamed for getting fired.",
-    blame_m:"Jeff should be blamed for getting fired."}
+  }
 ];
 
-// Study 1: Generate four scenarios (2 with female agents, 2 with male agents)--updated Oct 9
-const shuffled = jsPsych.randomization.shuffle(scenarioStimuli);
-const chosenGroup = jsPsych.randomization.sampleWithoutReplacement(shuffled, 4);
-
-// Assign 2 female and 2 male agents
-const genderOrder = jsPsych.randomization.shuffle(
-  Array(2).fill("female_agent").concat(Array(2).fill("male_agent"))
-);
+// Only 1 scenario now; assign male or female based on genderCondition
+const scenario = scenarioStimuli[0];
+const genderKey = genderCondition === 'male' ? 'male_agent' : 'female_agent';
+const agentName = genderCondition === 'male' ? scenario.male_name : scenario.female_name;
 
 const topScale = `
   <div style="position:relative;width:100%;margin:8px 0 15px 0;">
@@ -439,8 +307,7 @@ const topScale = `
 
 const trials = [];
 
-// Force a response on every slider before the participant can continue --
-// mirrors Study 2: disable the Next button until all sliders are moved, reveal each box on input
+// Force a response on every slider before the participant can continue
 function forceSliderResponse() {
   const form = document.querySelector('#jspsych-survey-html-form');
   const nextBtn = document.querySelector('#jspsych-survey-html-form-next') ||
@@ -467,14 +334,7 @@ function forceSliderResponse() {
   });
 }
 
-chosenGroup.forEach((scenario, sIdx) => {
-  const genderKey = genderOrder[sIdx];
-  const scenarioText = scenario[genderKey];
-  const agentName = genderKey === "female_agent" ? scenario.female_name : scenario.male_name;
-
-  const cells = [];
-
-  // Descriptive top scales--Updated Oct 9
+// Descriptive top scales
 function makeTopScale(type) {
   let leftLabel, rightLabel;
   if (type === "prob") {
@@ -499,7 +359,10 @@ function makeTopScale(type) {
   `;
 }
 
-// 5 actions per scenario
+// Build the single scenario trial
+const scenarioText = scenario[genderKey];
+const cells = [];
+
 for (let i = 1; i <= 5; i++) {
   cells.push(`
     <div style="margin-bottom:70px;">
@@ -559,30 +422,152 @@ for (let i = 1; i <= 5; i++) {
   `);
 }
 
-  const block = `
-    <div style="display:flex;flex-direction:column;gap:20px;">
-      ${cells.join("")}
-    </div>
-  `;
+const block = `
+  <div style="display:flex;flex-direction:column;gap:20px;">
+    ${cells.join("")}
+  </div>
+`;
 
-  trials.push({
-    type: jsPsychSurveyHtmlForm,
-    preamble: `
-      <div style="text-align:left; max-width:650px; margin:0 auto;">
-        <p>${scenarioText}</p>
-        <p><strong>In this situation, what are some things you believe ${agentName} could do? Please list 5 actions and then answer the following questions.</strong></p>
-      </div>
-    `,
-    html: block,
-    button_label: "Continue",
-    data: { scenario_id: scenario.id, gender: genderKey, agent: agentName },
-    on_load: forceSliderResponse,
-    on_finish: expandResponse
-  });
+trials.push({
+  type: jsPsychSurveyHtmlForm,
+  preamble: `
+    <div style="text-align:left; max-width:650px; margin:0 auto;">
+      <p>${scenarioText}</p>
+      <p><strong>In this situation, what are some things you believe ${agentName} could do? Please list 5 actions and then answer the following questions.</strong></p>
+    </div>
+  `,
+  html: block,
+  button_label: "Continue",
+  data: { scenario_id: scenario.id, gender: genderKey, agent: agentName },
+  on_load: forceSliderResponse,
+  on_finish: expandResponse
 });
 
-// attention check question
+// =============================================
+// Benevolent Sexism Inventory (BSI) - 11 items
+// from Glick & Fiske (1996) ASI Appendix
+// =============================================
+const bsiScale = [
+  "0 = Disagree strongly",
+  "1 = Disagree somewhat",
+  "2 = Disagree slightly",
+  "3 = Agree slightly",
+  "4 = Agree somewhat",
+  "5 = Agree strongly"
+];
 
+const bsiItems = {
+  type: jsPsychSurveyLikert,
+  preamble: `
+    <div style="max-width:800px; margin:auto; text-align:left;">
+      <h3 style="text-align:center;">Relationships Between Men and Women</h3>
+      <p>Below is a series of statements concerning men and women and their relationships in contemporary society. 
+      Please indicate the degree to which you agree or disagree with each statement.</p>
+    </div>
+  `,
+  questions: [
+    {
+      prompt: "1. No matter how accomplished he is, a man is not truly complete as a person unless he has the love of a woman.",
+      name: "bsi_01",
+      labels: bsiScale,
+      required: true
+    },
+    {
+      prompt: "2. In a disaster, women ought not necessarily to be rescued before men.",
+      name: "bsi_03_r",
+      labels: bsiScale,
+      required: true
+    },
+    {
+      prompt: "3. People are often truly happy in life without being romantically involved with a member of the other sex.",
+      name: "bsi_06_r",
+      labels: bsiScale,
+      required: true
+    },
+    {
+      prompt: "4. Many women have a quality of purity that few men possess.",
+      name: "bsi_08",
+      labels: bsiScale,
+      required: true
+    },
+    {
+      prompt: "5. Women should be cherished and protected by men.",
+      name: "bsi_09",
+      labels: bsiScale,
+      required: true
+    },
+    {
+      prompt: "6. Every man ought to have a woman whom he adores.",
+      name: "bsi_12",
+      labels: bsiScale,
+      required: true
+    },
+    {
+      prompt: "7. Men are complete without women.",
+      name: "bsi_13_r",
+      labels: bsiScale,
+      required: true
+    },
+    {
+      prompt: "8. A good woman should be set on a pedestal by her man.",
+      name: "bsi_17",
+      labels: bsiScale,
+      required: true
+    },
+    {
+      prompt: "9. Women, compared to men, tend to have a superior moral sensibility.",
+      name: "bsi_19",
+      labels: bsiScale,
+      required: true
+    },
+    {
+      prompt: "10. Men should be willing to sacrifice their own well being in order to provide financially for the women in their lives.",
+      name: "bsi_20",
+      labels: bsiScale,
+      required: true
+    },
+    {
+      prompt: "11. Women, as compared to men, tend to have a more refined sense of culture and good taste.",
+      name: "bsi_22",
+      labels: bsiScale,
+      required: true
+    }
+  ],
+  randomize_question_order: false,
+  on_finish: function(data) {
+    let bsiData = data.response;
+
+    // Reverse-score items 3, 6, 13 (bsi_03_r, bsi_06_r, bsi_13_r)
+    // Original scale: 0-5, reverse: 5-0
+    const reversed_03 = 5 - bsiData['bsi_03_r'];
+    const reversed_06 = 5 - bsiData['bsi_06_r'];
+    const reversed_13 = 5 - bsiData['bsi_13_r'];
+
+    const bsi_scores = {
+      bsi_01: bsiData['bsi_01'],
+      bsi_03_r: bsiData['bsi_03_r'],
+      bsi_03_reversed: reversed_03,
+      bsi_06_r: bsiData['bsi_06_r'],
+      bsi_06_reversed: reversed_06,
+      bsi_08: bsiData['bsi_08'],
+      bsi_09: bsiData['bsi_09'],
+      bsi_12: bsiData['bsi_12'],
+      bsi_13_r: bsiData['bsi_13_r'],
+      bsi_13_reversed: reversed_13,
+      bsi_17: bsiData['bsi_17'],
+      bsi_19: bsiData['bsi_19'],
+      bsi_20: bsiData['bsi_20'],
+      bsi_22: bsiData['bsi_22'],
+      bsi_score: (bsiData['bsi_01'] + reversed_03 + reversed_06 + bsiData['bsi_08'] + bsiData['bsi_09'] + bsiData['bsi_12'] + reversed_13 + bsiData['bsi_17'] + bsiData['bsi_19'] + bsiData['bsi_20'] + bsiData['bsi_22']) / 11
+    };
+
+    jsPsych.data
+      .getDataByTimelineNode(jsPsych.getCurrentTimelineNodeID())
+      .addToAll(bsi_scores);
+  }
+};
+
+// attention check question
 var attentioncheck = {
   type: jsPsychSurveyLikert,
   questions: [
@@ -730,7 +715,6 @@ const demographicsQuestions = {
 };
 
 // Political ideology + Bot Check -- updated Oct 10
-// No matter they input "sunflower" or "penguin", they would be a LLM, as human cannot see the text here
 const politicsQuestions = {
   type: jsPsychSurveyMultiChoice,
   questions: [
@@ -845,7 +829,7 @@ const politicsQuestions = {
 const save_data = {
    type: jsPsychPipe,
    action: "save",
-   experiment_id: "LIYfnXa5y6zU", //updated as of Sep 18
+   experiment_id: "RwGe88QVSAf6", //updated as of June 21
    filename: filename,
    data_string: () => jsPsych.data.get().csv(),
    on_finish: function (data) {
@@ -873,6 +857,7 @@ const save_data = {
      }, 5000)
    }
  };
+
 //Add helper function for data format updated Oct 6
 function expandResponse(data) {
   const responses = data.response;
@@ -881,9 +866,14 @@ function expandResponse(data) {
   }
 }
 
+// =============================================
+// TIMELINE ORDER:
+// consent -> instruction -> scenario 1 -> BSI -> attention check -> demographics -> political -> debrief -> save
+// =============================================
 timeline.push(consentForm);
 timeline.push(instruction);
 timeline.push(...trials);
+timeline.push(bsiItems);        // BSI added here, after scenario, before political
 timeline.push(attentioncheck);
 timeline.push(demographicsQuestions);
 timeline.push(politicsQuestions);
