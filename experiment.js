@@ -185,7 +185,7 @@ const instruction = {
     <div style="max-width:800px; margin:auto; text-align:left;">
       <h2 style="text-align:center">Welcome to our study!</h2>
       <p>In this experiment, we are interested in learning about the kinds of actions that you think someone else could do.</p>
-      <p>You will read scenarios and be asked to provide possible actions that the person in the scenario could do. You will also be asked to rate the actions you come up with on how probable, how moral, and how normal the actions are.</p>
+      <p>You will read scenarios and be asked to provide possible actions that the person in the scenario could do. You will also be asked to rate the actions you come up with on how morally good or bad, how morally acceptable, and how normal the actions are.</p>
     </div>
   `,
   choices: ['Continue']
@@ -337,9 +337,9 @@ function forceSliderResponse() {
 // Descriptive top scales
 function makeTopScale(type) {
   let leftLabel, rightLabel;
-  if (type === "prob") {
-    leftLabel = "Not at all probable";
-    rightLabel = "Very probable";
+  if (type === "moralgood") {
+    leftLabel = "Extremely morally bad";
+    rightLabel = "Extremely morally good";
   } else if (type === "moral") {
     leftLabel = "Not at all acceptable";
     rightLabel = "Very acceptable";
@@ -377,15 +377,15 @@ for (let i = 1; i <= 5; i++) {
       <!-- Probable -->
       <div style="margin:70px auto; max-width:700px;">
         <div style="display:flex; align-items:center; gap:20px; margin-bottom:16px;">
-          <p style="flex-grow:1; text-align:center; margin:0;">How probable is it that ${agentName} will perform this action?</p>
+          <p style="flex-grow:1; text-align:center; margin:0;">How morally good or bad would it be for ${agentName} to perform this action?</p>
           <div style="flex-shrink:0; width:50px;"></div>
         </div>
         <div style="display:flex; align-items:center; justify-content:space-between; gap:20px;">
           <div style="flex-grow:1;">
-            ${makeTopScale("prob")}
-            <input type="range" name="prob_${scenario.id}_${i}" data-box="probval_${scenario.id}_${i}" min="0" max="100" step="1" value="50" style="width:100%; margin-top:12px;">
+            ${makeTopScale("moralgood")}
+            <input type="range" name="moralgood_${scenario.id}_${i}" data-box="moralgoodval_${scenario.id}_${i}" min="0" max="100" step="1" value="50" style="width:100%; margin-top:12px;">
           </div>
-          <div id="probval_${scenario.id}_${i}" style="flex-shrink:0; width:50px; height:32px; line-height:32px; border:1px solid #ccc; border-radius:4px; background:#f5f5f5; color:transparent;">50</div>
+          <div id="moralgoodval_${scenario.id}_${i}" style="flex-shrink:0; width:50px; height:32px; line-height:32px; border:1px solid #ccc; border-radius:4px; background:#f5f5f5; color:transparent;">50</div>
         </div>
       </div>
 
@@ -829,7 +829,7 @@ const politicsQuestions = {
 const save_data = {
    type: jsPsychPipe,
    action: "save",
-   experiment_id: "RwGe88QVSAf6", //updated as of June 20
+   experiment_id: "RwGe88QVSAf6", // updated at June 20
    filename: filename,
    data_string: () => jsPsych.data.get().csv(),
    on_finish: function (data) {
@@ -853,7 +853,7 @@ const save_data = {
        </p>`
      );
      setTimeout(function () {
-       window.location.href = "https://app.prolific.com/submissions/complete?cc=C15ADLI3"; //this is updated as of sep 18
+       window.location.href = "https://app.prolific.com/submissions/complete?cc=C15ADLI3";
      }, 5000)
    }
  };
@@ -873,7 +873,7 @@ function expandResponse(data) {
 timeline.push(consentForm);
 timeline.push(instruction);
 timeline.push(...trials);
-timeline.push(bsiItems);        // BSI added here, after scenario, before political
+timeline.push(bsiItems);    
 timeline.push(attentioncheck);
 timeline.push(demographicsQuestions);
 timeline.push(politicsQuestions);
