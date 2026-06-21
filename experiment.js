@@ -251,9 +251,8 @@ const attention_scale = [
   "7 = Yes, I paid full attention. You should use my data",
 ];
 
-// =============================================
-// Scenario Stimuli -- ONLY Scenario 1 retained
-// =============================================
+// Scenario stimuli -- only includes scenario 1 now --updated at June 21
+
 const scenarioStimuli = [
   { 
     id: 1,
@@ -289,7 +288,6 @@ const scenarioStimuli = [
   }
 ];
 
-// Only 1 scenario now; assign male or female based on genderCondition
 const scenario = scenarioStimuli[0];
 const genderKey = genderCondition === 'male' ? 'male_agent' : 'female_agent';
 const agentName = genderCondition === 'male' ? scenario.male_name : scenario.female_name;
