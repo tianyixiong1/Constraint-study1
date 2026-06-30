@@ -99,7 +99,7 @@ const consentForm = {
           <h3>What we will ask you to do</h3>
           <p>We will ask you to...</p>
           <ol>
-            <li>Complete a study that takes approximately [5–30] minutes. The study will include demographic questions (e.g., age, gender), brief tasks or vignettes, and questions about your thoughts, perceptions, and reactions. In some cases, you may be asked to read short stories or view images before answering questions.</li>
+            <li>Complete a study that takes approximately 5 minutes. The study will include demographic questions (e.g., age, gender), brief tasks or vignettes, and questions about your thoughts, perceptions, and reactions. In some cases, you may be asked to read short stories or view images before answering questions.</li>
           </ol>
           
           <h3>Risks and discomforts</h3>
@@ -115,7 +115,7 @@ const consentForm = {
           
           <h3>Incentives for participation</h3>
           <p>You will receive course credit for the time spent participating at a rate of 1 credit per hour. If participating 
-          through Prolific/Cloud, you will be paid [$0.75-$4.50] (<em>rate of $9/hr</em>) for your participation in the study. </p>
+          through Prolific/Cloud, you will be paid $0.75 (<em>rate of $9/hr</em>) for your participation in the study. </p>
           
           <h3>Privacy/Confidentiality/Data Security</h3>
           <p>You will not be asked to provide information that could be used to identify you personally.</p>
