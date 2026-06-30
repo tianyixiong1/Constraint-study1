@@ -240,6 +240,68 @@ const politicalResponses = [
   "7 (Extremely conservative)",
 ];
 
+
+// Praiseworthy pilot items - updated June 30
+
+function makeTopScalePraise() {
+  return `
+    <div style="position:relative;width:100%;margin:0 0 12px 0;height:36px;">
+      <span style="position:absolute;left:0;top:0.4em;font-size:14px;margin-left:-8px;">Not at all praiseworthy</span>
+      <span style="position:absolute;right:0;top:0.4em;font-size:14px;margin-right:-8px;">Extremely praiseworthy</span>
+      ${Array.from({length:11},(_,i)=>i*10).map(v=>{
+        return `<span style="position:absolute;left:${v}%;top:30px;transform:translateX(-50%);font-size:11px;">${v}</span>`;
+      }).join("")}
+    </div>
+  `;
+}
+
+const praiseworthyToday = {
+  type: jsPsychSurveyHtmlForm,
+  preamble: `
+    <div style="text-align:left; max-width:700px; margin:0 auto;">
+      <p>Now, we would like you to answer a few questions about a different person. These questions are not related to the scenario you just read about and came up with actions in response to.</p>
+    </div>
+  `,
+  html: `
+    <div style="margin:40px auto; max-width:700px;">
+      <p style="text-align:center; font-weight:bold; margin-bottom:30px;">A person <strong>today</strong> works hard to make money so they can buy food to give to the hungry. How praiseworthy is this person for this action?</p>
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:20px;">
+        <div style="flex-grow:1;">
+          ${makeTopScalePraise()}
+          <input type="range" name="praiseworthy_today" data-box="praiseval_today" min="0" max="100" step="1" value="50" style="width:100%; margin-top:12px;">
+        </div>
+        <div id="praiseval_today" style="flex-shrink:0; width:50px; height:32px; line-height:32px; border:1px solid #ccc; border-radius:4px; background:#f5f5f5; color:transparent;">50</div>
+      </div>
+    </div>
+  `,
+  button_label: "Continue",
+  on_load: forceSliderResponse,
+  on_finish: function(data) {
+    data.praiseworthy_today = data.response.praiseworthy_today;
+  }
+};
+
+const praiseworthyPast = {
+  type: jsPsychSurveyHtmlForm,
+  html: `
+    <div style="margin:40px auto; max-width:700px;">
+      <p style="text-align:center; font-weight:bold; margin-bottom:30px;">A person <strong>300 years ago (~1700's)</strong> works hard to make money so they can buy food to give to the hungry. How praiseworthy is this person for this action?</p>
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:20px;">
+        <div style="flex-grow:1;">
+          ${makeTopScalePraise()}
+          <input type="range" name="praiseworthy_past" data-box="praiseval_past" min="0" max="100" step="1" value="50" style="width:100%; margin-top:12px;">
+        </div>
+        <div id="praiseval_past" style="flex-shrink:0; width:50px; height:32px; line-height:32px; border:1px solid #ccc; border-radius:4px; background:#f5f5f5; color:transparent;">50</div>
+      </div>
+    </div>
+  `,
+  button_label: "Continue",
+  on_load: forceSliderResponse,
+  on_finish: function(data) {
+    data.praiseworthy_past = data.response.praiseworthy_past;
+  }
+};
+
 // attention check
 const attention_scale = [
   "1 = No, I didnt pay close attention. You should not use my data",
