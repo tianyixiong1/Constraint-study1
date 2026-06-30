@@ -926,14 +926,15 @@ function expandResponse(data) {
   }
 }
 
-// =============================================
 // TIMELINE ORDER:
-// consent -> instruction -> scenario 1 -> BSI -> attention check -> demographics -> political -> debrief -> save
-// =============================================
+// consent -> instruction -> scenario 1 -> BSI -> pilot items -> attention check -> demographics -> political -> debrief -> save
+
 timeline.push(consentForm);
 timeline.push(instruction);
 timeline.push(...trials);
 timeline.push(bsiItems);    
+timeline.push(praiseworthyToday); // -updated June 30
+timeline.push(praiseworthyPast); // -updated June 30
 timeline.push(attentioncheck);
 timeline.push(demographicsQuestions);
 timeline.push(politicsQuestions);
