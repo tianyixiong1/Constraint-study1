@@ -437,7 +437,7 @@ for (let i = 1; i <= 5; i++) {
       <!-- Morally good or bad --> 
       <div style="margin:70px auto; max-width:700px;">
         <div style="display:flex; align-items:center; gap:20px; margin-bottom:16px;">
-          <p style="flex-grow:1; text-align:center; margin:0;">how morally good or bad would it be for ${agentName} to perform this action?</p> //updated June 30
+          <p style="flex-grow:1; text-align:center; margin:0;">how morally good or bad would it be for ${agentName} to perform this action?</p>
           <div style="flex-shrink:0; width:50px;"></div>
         </div>
         <div style="display:flex; align-items:center; justify-content:space-between; gap:20px;">
