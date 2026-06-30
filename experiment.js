@@ -503,10 +503,8 @@ trials.push({
   on_finish: expandResponse
 });
 
-// =============================================
 // Benevolent Sexism Inventory (BSI) - 11 items
-// from Glick & Fiske (1996) ASI Appendix
-// =============================================
+
 const bsiScale = [
   "Disagree strongly",
   "Disagree somewhat",
