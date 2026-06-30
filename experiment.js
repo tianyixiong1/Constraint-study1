@@ -264,7 +264,7 @@ const praiseworthyToday = {
   `,
   html: `
     <div style="margin:40px auto; max-width:700px;">
-      <p style="text-align:center; font-weight:bold; margin-bottom:30px;">A person <strong>today</strong> works hard to make money so they can buy food to give to the hungry. How praiseworthy is this person for this action?</p>
+      <p style="text-align:center; margin-bottom:30px;">A person <strong>today</strong> works hard to make money so they can buy food to give to the hungry. How praiseworthy is this person for this action?</p>
       <div style="display:flex; align-items:center; justify-content:space-between; gap:20px;">
         <div style="flex-grow:1;">
           ${makeTopScalePraise()}
@@ -285,7 +285,7 @@ const praiseworthyPast = {
   type: jsPsychSurveyHtmlForm,
   html: `
     <div style="margin:40px auto; max-width:700px;">
-      <p style="text-align:center; font-weight:bold; margin-bottom:30px;">A person <strong>300 years ago (~1700's)</strong> works hard to make money so they can buy food to give to the hungry. How praiseworthy is this person for this action?</p>
+      <p style="text-align:center; margin-bottom:30px;">A person <strong>300 years ago (~1700's)</strong> works hard to make money so they can buy food to give to the hungry. How praiseworthy is this person for this action?</p>
       <div style="display:flex; align-items:center; justify-content:space-between; gap:20px;">
         <div style="flex-grow:1;">
           ${makeTopScalePraise()}
